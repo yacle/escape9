@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="customer">
+	<insert id="create" >
+		insert into customer(phone, sign) values(#{phone}, #{sign_data})
+	</insert> 
+	<select id="list" resultType="com.escape.domain.CustomerVO">
+		select name, phone, email, comments from customer
+	</select>
+	<select id="sign" resultType="com.escape.domain.CustomerVO">
+		select sign from customer where phone=#{phone}
+	</select>
+	<select id="read" resultType="com.escape.domain.SurveyVO">
+		select no, game_name, total_eval, environment, 
+			thema, composition, difficulty, repeat_num, 
+			route, comments, join_date, member
+		from survey 
+		where phone=#{phone}
+	</select>
+	<update id="update">
+		update customer set name=#{name}, email=#{email} where phone=#{phone}
+	</update>
+	<delete id="delete">
+		delete from customer where phone=#{phone}
+	</delete>
+	
+</mapper>
