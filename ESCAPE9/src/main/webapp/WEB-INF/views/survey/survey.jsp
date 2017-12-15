@@ -13,7 +13,7 @@
 	<div align="center">
 		<h2>게임 설문조사</h2>
 	</div><hr/>
-	<form method="post" action="/survey">
+	<form method="post" action="/survey/">
 		<p>
 		1. 어떤 게임을 하셨나요?
 			<div class="radio">
