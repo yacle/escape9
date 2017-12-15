@@ -27,7 +27,7 @@
 	</section>
 </div>
 <div class="container-fluid" style="background-color:#2d2d30">
-	<footer>
+	<footer class="navbar navbar-inverse navbar-fixed-bottom">
 		<tiles:insertAttribute name="footer" />
 	</footer>
 </div>

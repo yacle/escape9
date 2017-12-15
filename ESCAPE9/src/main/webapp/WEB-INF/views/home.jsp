@@ -48,7 +48,7 @@
 		</div>
 		<div class="col-xs-1"></div>
 		<div class="col-xs-5" align="left">
-			<a class="btn right" href="/survey/">설문조사</a>
+			<a class="btn right" href="/survey/get">설문조사</a>
 		</div>
 	</div>
 </body>

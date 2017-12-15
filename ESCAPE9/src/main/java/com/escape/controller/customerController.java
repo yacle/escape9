@@ -2,6 +2,7 @@ package com.escape.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -32,12 +33,7 @@ private customerService service;
 		return mav;
 	}
 	
-	@RequestMapping(value="/master", method = RequestMethod.GET )
-	public ModelAndView masterHandle() {
-		ModelAndView mav = new ModelAndView("temp");
-		mav.addObject("section", "master/master");
-		return mav;
-	}
+	
 	
 	// sign pad ¿­±â
 	@RequestMapping(value="/sign", method = RequestMethod.GET)
@@ -53,11 +49,5 @@ private customerService service;
 	    System.out.println("filename"+fileName);
 	}
 	
-	@RequestMapping("/customer")
-	public ModelAndView customerListHandle() throws Exception {
-		ModelAndView mav = new ModelAndView("temp");
-		mav.addObject("section", "customer/customerList");
-		mav.addObject("list", service.list());
-		return mav;
-	}
+	
 }

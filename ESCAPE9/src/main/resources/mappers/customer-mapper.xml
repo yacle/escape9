@@ -7,7 +7,7 @@
 		insert into customer(phone, sign) values(#{phone}, #{sign_data})
 	</insert> 
 	<select id="list" resultType="com.escape.domain.CustomerVO">
-		select name, phone, email, comments from customer
+		select * from customer
 	</select>
 	<select id="sign" resultType="com.escape.domain.CustomerVO">
 		select sign from customer where phone=#{phone}

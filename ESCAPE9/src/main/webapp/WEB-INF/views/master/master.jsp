@@ -38,11 +38,11 @@
 <body>
 	<div class="row" style="margin-top: 200px">
 		<div class="col-xs-6" align="right">
-			<a class="btn left" href="/customer">고객정보</a>
+			<a class="btn left" href="/master/customer">고객정보</a>
 		</div>
 		<div class="col-xs-1"></div>
 		<div class="col-xs-5" align="left">
-			<a class="btn right" href="/survey/stats">설문 통계</a>
+			<a class="btn right" href="/master/stats">설문 통계</a>
 		</div>
 	</div>
 </body>

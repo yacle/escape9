@@ -5,7 +5,7 @@
 <mapper namespace="survey">
 	<insert id="create" >
 		insert into survey values(
-			surbey_seq.nextval, 
+			survey_seq.nextval, 
 			#{game_name}, 
 			#{total_eval}, 
 			#{environment}, 

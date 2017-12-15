@@ -5,11 +5,11 @@ import java.sql.Date;
 public class SurveyVO {
 	private Integer no;
 	private String game_name;
-	private int total_eval;
-	private int	environment;
-	private int thema;
-	private int composition;
-	private int difficulty;
+	private Integer total_eval;
+	private Integer	environment;
+	private Integer thema;
+	private Integer composition;
+	private Integer difficulty;
 	private Integer repeat_num;
 	private String route;
 	private String route_1;
@@ -19,7 +19,7 @@ public class SurveyVO {
 	private String age;
 	private String gender;
 	private Integer member;
-	private Integer phone;
+	private String phone;
 	private String name;
 	public Integer getNo() {
 		return no;
@@ -33,28 +33,28 @@ public class SurveyVO {
 	public void setGame_name(String game_name) {
 		this.game_name = game_name;
 	}
-	public int getTotal_eval() {
+	public Integer getTotal_eval() {
 		return total_eval;
 	}
-	public void setTotal_eval(int total_eval) {
+	public void setTotal_eval(Integer total_eval) {
 		this.total_eval = total_eval;
 	}
-	public int getEnvironment() {
+	public Integer getEnvironment() {
 		return environment;
 	}
-	public void setEnvironment(int environment) {
+	public void setEnvironment(Integer environment) {
 		this.environment = environment;
 	}
-	public int getThema() {
+	public Integer getThema() {
 		return thema;
 	}
-	public void setThema(int thema) {
+	public void setThema(Integer thema) {
 		this.thema = thema;
 	}
-	public int getComposition() {
+	public Integer getComposition() {
 		return composition;
 	}
-	public void setComposition(int composition) {
+	public void setComposition(Integer composition) {
 		this.composition = composition;
 	}
 	@Override
@@ -65,10 +65,10 @@ public class SurveyVO {
 				+ ", comments=" + comments + ", join_date=" + join_date + ", age=" + age + ", gender=" + gender
 				+ ", member=" + member + ", phone=" + phone + ", name=" + name + "]";
 	}
-	public int getDifficulty() {
+	public Integer getDifficulty() {
 		return difficulty;
 	}
-	public void setDifficulty(int difficulty) {
+	public void setDifficulty(Integer difficulty) {
 		this.difficulty = difficulty;
 	}
 	public Integer getRepeat_num() {
@@ -127,10 +127,10 @@ public class SurveyVO {
 	public void setMember(Integer member) {
 		this.member = member;
 	}
-	public Integer getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(Integer phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	public String getName() {
