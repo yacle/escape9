@@ -57,6 +57,14 @@ public class SurveyVO {
 	public void setComposition(int composition) {
 		this.composition = composition;
 	}
+	@Override
+	public String toString() {
+		return "SurveyVO [no=" + no + ", game_name=" + game_name + ", total_eval=" + total_eval + ", environment="
+				+ environment + ", thema=" + thema + ", composition=" + composition + ", difficulty=" + difficulty
+				+ ", repeat_num=" + repeat_num + ", route=" + route + ", route_1=" + route_1 + ", route_2=" + route_2
+				+ ", comments=" + comments + ", join_date=" + join_date + ", age=" + age + ", gender=" + gender
+				+ ", member=" + member + ", phone=" + phone + ", name=" + name + "]";
+	}
 	public int getDifficulty() {
 		return difficulty;
 	}

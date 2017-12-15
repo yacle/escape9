@@ -41,10 +41,8 @@ private customerService service;
 	
 	// sign pad 열기
 	@RequestMapping(value="/sign", method = RequestMethod.GET)
-	public ModelAndView signHandle() {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("section", "customer/sign");
-		return mav;
+	public String signHandle() {
+		return "customer/sign";
 	}
 	// sign 저장
 	@RequestMapping(value="/sign", produces="text/html", method = RequestMethod.POST)

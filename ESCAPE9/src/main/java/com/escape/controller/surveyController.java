@@ -19,13 +19,15 @@ private surveyService service;
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public ModelAndView surveyHandle() {
 		ModelAndView mav = new ModelAndView("temp");
-		mav.addObject("section", "survey");
+		mav.addObject("section", "survey/survey");
 		return mav;
 	}
 	
 	@RequestMapping(value="/", method = RequestMethod.POST)
-	public void surveyPOSTHandle(SurveyVO vo) throws Exception {
-		service.create(vo);
+	public String surveyPOSTHandle(SurveyVO vo) throws Exception {
+		System.out.println(vo.toString());
+//		service.create(vo);
+		return "redirect:/home";
 	}
 	
 	@RequestMapping(value="/list", method = RequestMethod.GET)
