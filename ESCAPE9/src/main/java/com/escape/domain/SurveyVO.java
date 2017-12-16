@@ -87,14 +87,14 @@ public class SurveyVO {
 		return route_1;
 	}
 	public void setRoute_1(String route_1) {
-		this.route += route_1;
+		this.route += "_"+route_1;
 		this.route_1 = route_1;
 	}
 	public String getRoute_2() {
 		return route_2;
 	}
 	public void setRoute_2(String route_2) {
-		this.route += route_2;
+		this.route += "_"+route_2;
 		this.route_2 = route_2;
 	}
 	public String getComments() {

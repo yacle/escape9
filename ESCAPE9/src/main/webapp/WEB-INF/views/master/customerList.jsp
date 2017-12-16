@@ -6,6 +6,9 @@
 <title>고객 명단</title>
 </head>
 <body>
+<div align="center">
+	<h2>고객명단</h2>
+</div><br/>
 <table class="table table-hover">
 	<thead>
 		<tr>
@@ -18,7 +21,7 @@
 	<tbody>
   	<c:forEach var="vo" items="${list}">
 		<tr>
-			<td><a href="#">${vo.name}</a></td>
+			<td><a href="/master/customer_survey?phone=${vo.phone}&&name=${vo.name}">${vo.name}</a></td>
  			<td>${vo.phone}</td>
 			<td>${vo.email}</td>
 			<td>${vo.comments}</td>

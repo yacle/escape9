@@ -17,22 +17,22 @@
 		<p>
 		1. 어떤 게임을 하셨나요?
 			<div class="radio">
-				<label><input type="radio" name="game_name" class="game_name" value="1">The grand museum_잠입명령</label>
+				<label><input type="radio" name="game_name" value="1">The grand museum_잠입명령</label>
 			</div>
 			<div class="radio">
-				<label><input type="radio" name="game_name" class="game_name" value="2">Project 380 : The Alien_폐쇄된 외계인 실험실</label>
+				<label><input type="radio" name="game_name" value="2">Project 380 : The Alien_폐쇄된 외계인 실험실</label>
 			</div>
 			<div class="radio">
-				<label><input type="radio" name="game_name" class="game_name" value="3">The secret of my wife_아내</label>
+				<label><input type="radio" name="game_name" value="3">The secret of my wife_아내</label>
 			</div>
 			<div class="radio">
-				<label><input type="radio" name="game_name" class="game_name" value="4">The secret of my husband_남편</label>
+				<label><input type="radio" name="game_name" value="4">The secret of my husband_남편</label>
 			</div>
 			<div class="radio">
-				<label><input type="radio" name="game_name" class="game_name" value="5">The Jungle_실종된 탐사대</label>
+				<label><input type="radio" name="game_name" value="5">The Jungle_실종된 탐사대</label>
 			</div>
 			<div class="radio">
-				<label><input type="radio" name="game_name" class="game_name" value="6">Light and shade_죽음의 예배당</label>
+				<label><input type="radio" name="game_name" value="6">Light and shade_죽음의 예배당</label>
 			</div>
 		</p><hr/>
 		<p>
@@ -268,7 +268,8 @@
 		<div class="form-group row">
 			<div class="col-xs-3">
 				<label for="age">연령대</label>
-				<select class="form-control" name="age">
+				<select class="form-control" name="age" id="age">
+					<option></option>
 					<option>10 대</option>
 					<option>20 대</option>
 					<option>30 대</option>
@@ -277,14 +278,16 @@
 			</div>
 			<div class="col-xs-3">
 				<label for="gender">성별</label>
-				<select class="form-control" name="gender">
+				<select class="form-control" name="gender" id="gender">
+					<option></option>
 					<option>남</option>
 					<option>여</option>
 				</select>
 			</div>
 			<div class="col-xs-3">
 				<label for="member">인원수</label>
-				<select class="form-control" name="member">
+				<select class="form-control" name="member" id="member">
+					<option></option>
 					<option value=2>2 명</option>
 					<option value=3>3 명</option>
 					<option value=4>4 명</option>
@@ -294,10 +297,30 @@
 			</div>
 		</div>
 		</p><hr/>
-		작성자 :  <input type="text" name="name">
-		핸드폰 : <input type="number" name="phone"><br/><br/>
-		<button class="btn btn-info" type="submit" >제출</button>
+		작성자 :  <input type="text" name="name" id="name">
+		핸드폰 : <input type="number" name="phone" id="phone"><br/><br/>
+		<button class="btn btn-info" type="button" id="btn">제출</button>
 	</form>
-</body>
+</body><br/><br/><br/>
+<h1></h1>
 </html>
+<script>
+	$("#btn").click(function(){
+		if (!$("input[name='game_name']:checked").val()) { alert('1.게임을 선택하세요');return false;}
+		if (!$("input[name='total_eval']:checked").val()) { alert('2.종합평가를 선택하세요');return false;}
+		if (!$("input[name='environment']:checked").val()) { alert('3.환경평가를 선택하세요');return false;}
+		if (!$("input[name='thema']:checked").val()) { alert('4.테마평가를 선택하세요');return false;}
+		if (!$("input[name='composition']:checked").val()) { alert('5.구성평가를 선택하세요');return false;}
+		if (!$("input[name='difficulty']:checked").val()) { alert('6.난이도를 선택하세요');return false;}
+		if (!$("input[name='repeat_num']:checked").val()) { alert('7.게임횟수를 선택하세요');return false;}
+		if (!$("input[name='route']:checked").val()) { alert('알게된 경로를 선택하세요');return false;}
+		if ($("textarea").val().length==0) { alert('9.남기실 말씀은 없으신가요?');return false;}
+		if ($("#age").val()=='') { alert('10.연령대를 선택하세요');return false;}
+		if ($("#gender").val()=='') { alert('10.성별을 선택하세요');return false;}
+		if ($("#member").val()=='') { alert('10.인원수를 선택하세요');return false;}
+		if ($("#name").val()=='') { alert('10.성별을 선택하세요');return false;}
+		if ($("#phone").val()=='') { alert('10.인원수를 선택하세요');return false;}
+		$("#survey").submit();
+	})
+</script>
 

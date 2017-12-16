@@ -1,6 +1,7 @@
 package com.escape.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.escape.domain.CustomerVO;
@@ -38,6 +40,19 @@ public class masterController {
 		mav.addObject("list", list);
 		return mav;
 	}
+	// 고객별 설문내용 리스트
+	@RequestMapping(value="/customer_survey", method = RequestMethod.GET)
+	public ModelAndView customerSurveyHandle(@RequestParam Map map) throws Exception {
+		String phone= (String) map.get("phone");
+		String name= (String) map.get("name");
+		List<SurveyVO> list = survey.read(phone);
+		ModelAndView mav = new ModelAndView("temp");
+		mav.addObject("section", "master/customerSurvey");
+		mav.addObject("list", list);
+		mav.addObject("name", name);
+		return mav;
+	}
+	
 	// 설문통계 메인페이지
 	@RequestMapping(value="/stats", method = RequestMethod.GET)
 	public ModelAndView surveyMainHandle() throws Exception{
