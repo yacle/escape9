@@ -314,12 +314,12 @@
 		if (!$("input[name='difficulty']:checked").val()) { alert('6.난이도를 선택하세요');return false;}
 		if (!$("input[name='repeat_num']:checked").val()) { alert('7.게임횟수를 선택하세요');return false;}
 		if (!$("input[name='route']:checked").val()) { alert('알게된 경로를 선택하세요');return false;}
-		if ($("textarea").val().length==0) { alert('9.남기실 말씀은 없으신가요?');return false;}
+		if ($("textarea").val().length==0) { alert('9.소감을 남겨주세요');$("textarea").focus();return false;}
 		if ($("#age").val()=='') { alert('10.연령대를 선택하세요');return false;}
 		if ($("#gender").val()=='') { alert('10.성별을 선택하세요');return false;}
 		if ($("#member").val()=='') { alert('10.인원수를 선택하세요');return false;}
-		if ($("#name").val()=='') { alert('10.성별을 선택하세요');return false;}
-		if ($("#phone").val()=='') { alert('10.인원수를 선택하세요');return false;}
+		if ($("#name").val()=='') { alert('이름을 입력해주세요');$("#name").focus();return false;}
+		if ($("#phone").val()=='') { alert('전화번호를 입력해주세요');$("#phone").focus();return false;}
 		$("#survey").submit();
 	})
 </script>

@@ -76,7 +76,16 @@ tr:hover {background-color:#f5f5f5;}
 			<td>${vo.composition}</td>
  			<td>${vo.difficulty}</td>
 			<td>${vo.repeat_num}</td>
-			<td>${vo.route}</td>
+			<td>
+			<c:choose>
+				<c:when test="${vo.route eq '1' }">간판</c:when>
+				<c:when test="${vo.route eq '2' }">지인추천</c:when>
+				<c:when test="${vo.route eq '6' }">기타</c:when>
+				<c:when test="${vo.route eq '4' }">SNS</c:when>
+				<c:when test="${vo.route eq '5' }">재방문</c:when>
+				<c:otherwise>네이버블로그</c:otherwise>
+			</c:choose>
+			</td>
 			<td>${vo.comments}</td>
  			<td>${vo.join_date}</td>
 			<td>${vo.age}</td>
@@ -87,5 +96,6 @@ tr:hover {background-color:#f5f5f5;}
 	</c:forEach>
 	</tbody>
 </table>
+
 </body>
 </html>
