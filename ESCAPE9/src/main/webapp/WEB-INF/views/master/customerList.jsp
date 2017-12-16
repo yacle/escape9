@@ -16,6 +16,7 @@
 			<th>전화번호</th>
 			<th>이메일</th>
 			<th>기타</th>
+			<th>서약서</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -25,6 +26,7 @@
  			<td>${vo.phone}</td>
 			<td>${vo.email}</td>
 			<td>${vo.comments}</td>
+			<td><a href="/master/customer_sign?phone=${vo.phone}&&name=${vo.name}">서약서</a></td>
 		</tr>
 	</c:forEach>
 	</tbody>

@@ -26,7 +26,7 @@ private customerDAO dao;
 	}
 
 	@Override
-	public CustomerVO sign(String phone) throws Exception {
+	public List<CustomerVO> sign(String phone) throws Exception {
 		return dao.sign(phone);
 	}
 

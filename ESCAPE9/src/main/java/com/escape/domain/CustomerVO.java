@@ -4,7 +4,8 @@ public class CustomerVO {
 	private String name;
 	private String phone;
 	private String email;
-	private String sign;
+	private String imgData;
+	private String file_name;
 	private String comments;
 	public String getName() {
 		return name;
@@ -24,11 +25,17 @@ public class CustomerVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getSign() {
-		return sign;
+	public String getImgData() {
+		return imgData;
 	}
-	public void setSign(String sign) {
-		this.sign = sign;
+	public void setImgData(String imgData) {
+		this.imgData = imgData;
+	}
+	public String getFile_name() {
+		return file_name;
+	}
+	public void setFile_name(String file_name) {
+		this.file_name = file_name;
 	}
 	public String getComments() {
 		return comments;
@@ -36,11 +43,4 @@ public class CustomerVO {
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
-	@Override
-	public String toString() {
-		return "CustomerVO [name=" + name + ", phone=" + phone + ", email=" + email + ", sign=" + sign + ", comments="
-				+ comments + "]";
-	}
-	
-	
 }

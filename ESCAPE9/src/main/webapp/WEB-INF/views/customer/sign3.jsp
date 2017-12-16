@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,22 +8,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
-<script type="text/javascript" src="/resources/html2canvas.js"></script>
-<script type="text/javascript" src="/resources/html2canvas.min.js"></script>
-<script>
-function fnCopy() {
-	html2canvas($("#divSource"), {
-		//allowTaint: true,
-		//taintTest: false,
-		useCORS: true,
-		proxy: '/etc/proxy_image',
-		onrendered: function(canvas) {
-			var image = canvas.toDataURL();
-			$("#imgTarget").attr("src", image);
-		}
-	});
-}	
-</script>
 </head>
 <style>
 .wrapper {
@@ -51,15 +34,21 @@ img {
 
 </style>
 <body>
-	<div class="wrapper" id="divSource">
-		<img src="/images/brochure.png" width="800" height="600" id="imgTarget"/>
+	<div class="wrapper">
+		<img src="/images/brochure.png" width="800" height="600"/>
 		<canvas id="signature-pad" class="signature-pad" width=800 height=600></canvas>
 	</div>
 	<div>
+		<form name="imgForm" id="imgForm" action="/signResult" method="post">
+			<input type="hidden" id="imgData" name="imgData">
+			<b>이름 : </b><input type="text" name="name"/>
+			<b>전화번호 : </b><input type="number" name="phone"/>
+			<b>이메일 : </b><input type="email" name="email"/>
+	    </form>
 		<button id="save">Save</button>
 		<button id="clear">Clear</button>
 	</div>
-</body>
+	</body>
 </html>
 <script>
 var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
@@ -68,40 +57,15 @@ var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
 	});
 var saveButton = document.getElementById('save');
 var cancelButton = document.getElementById('clear');
-function upload(getCanvas){
-	var imageData = getCanvas.toDataURL("image/png");
-	var formData = new FormData();
-	formData.append('file', imageData);
-	$.ajax({
-		url:'/sign',
-		type: 'post',
-		dataType:'json',
-		data: formData,
-		processData: false,
-		contentType: false,
-		success:function(data){
-			alert("저장되었습니다.");
-		},
-		error:function(request, status, error){
-			console.log(request, status, error);
-		}
-	})
-}
-function makeImage(){
-	element = $("#divSource");
-	html2canvas(element,{
-		onrendered:function(canvas){
-		var	getCanvas = canvas;
-			upload(getCanvas);
-		}
-	})
-}
-saveButton.addEventListener('click', function (event) {
-	makeImage();
-})
 
-cancelButton.addEventListener('click', function (event) {
-	signaturePad.clear();
+saveButton.addEventListener('click', function (event) {
+	var data = signaturePad.toDataURL('image/png');
+	$("#imgData").val(data);
+	$("#imgForm").submit();
+	
 });
 
+cancelButton.addEventListener('click', function (event) {
+  signaturePad.clear();
+});
 </script>

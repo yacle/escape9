@@ -17,6 +17,7 @@ public class customerDAOImpl implements customerDAO {
 	@Override
 	public void create(CustomerVO vo) throws Exception {
 		session.insert("customer.create", vo);
+		session.insert("customer.add", vo);
 	}
 
 	@Override
@@ -37,8 +38,8 @@ public class customerDAOImpl implements customerDAO {
 	}
 
 	@Override
-	public CustomerVO sign(String phone) throws Exception {
-		return session.selectOne("customer.sign", phone);
+	public List<CustomerVO> sign(String phone) throws Exception {
+		return session.selectList("customer.sign", phone);
 	}
 
 }

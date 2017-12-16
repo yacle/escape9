@@ -52,7 +52,18 @@ public class masterController {
 		mav.addObject("name", name);
 		return mav;
 	}
-	
+	// 고객 서약서 read
+	@RequestMapping(value="/customer_sign", method = RequestMethod.GET)
+	public ModelAndView customerSignHandle(@RequestParam Map map) throws Exception {
+		String phone= (String) map.get("phone");
+		String name= (String) map.get("name");
+		List<CustomerVO> list = customer.sign(phone);
+		ModelAndView mav = new ModelAndView("temp");
+		mav.addObject("section", "master/customerSign");
+		mav.addObject("list", list);
+		mav.addObject("name", name);
+		return mav;
+	}
 	// 설문통계 메인페이지
 	@RequestMapping(value="/stats", method = RequestMethod.GET)
 	public ModelAndView surveyMainHandle() throws Exception{
