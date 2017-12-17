@@ -42,4 +42,12 @@ public class customerDAOImpl implements customerDAO {
 		return session.selectList("customer.sign", phone);
 	}
 
+	@Override
+	public int read(CustomerVO vo) throws Exception {
+		int r = session.selectOne("customer.read", vo);
+		if(r!=0) {
+			session.insert("customer.add", vo);
+		}
+		return r;
+	}
 }

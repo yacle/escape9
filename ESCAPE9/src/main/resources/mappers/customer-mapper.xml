@@ -12,6 +12,9 @@
 	<select id="list" resultType="com.escape.domain.CustomerVO">
 		select * from customer
 	</select>
+	<select id="read" resultType="int">
+		select count(*) from customer where phone=#{phone}
+	</select>
 	<select id="sign" resultType="com.escape.domain.CustomerVO">
 		select file_name from oath where phone=#{phone}
 	</select>

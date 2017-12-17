@@ -1,33 +1,24 @@
 package com.escape.controller;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.escape.domain.CustomerVO;
-import com.escape.domain.SurveyVO;
 import com.escape.service.customerService;
 
 @Controller
@@ -37,7 +28,8 @@ public class customerController {
 private customerService service;
 @Inject
 ServletContext application;
-
+@Inject
+SimpleDateFormat sdf;
 	@RequestMapping(value="/", method = RequestMethod.GET )
 	public ModelAndView homeHandle() {
 		ModelAndView mav = new ModelAndView("temp");
@@ -49,11 +41,11 @@ ServletContext application;
 	public String signHandle() {
 		return "customer/sign3";
 	}
-	// sign 저장
+	// 서약서 sign 및 고객정보 저장
 	@RequestMapping(value="/signResult", method = RequestMethod.POST)
 	public String signPOSTHandle(CustomerVO vo, ModelMap data) throws Exception {
 		Calendar cal = Calendar.getInstance();
-		String date = cal.get(Calendar.YEAR)+""+(cal.get(Calendar.MONTH)+1)+""+cal.get(Calendar.DATE);
+		String date = sdf.format(System.currentTimeMillis());
 		String imgData =vo.getImgData();
 		String name = vo.getName();
 		String phone = vo.getPhone();
@@ -70,11 +62,15 @@ ServletContext application;
 		
 		vo.setImgData(null);
 		vo.setFile_name(saveName);
-		service.create(vo);
-		data.addAttribute("fileName", saveName);
+		int r = service.read(vo);							// 등록되어있는 고객인지 확인(등록된 고객이면 사인파일만 저장)
+		if(r==0) {
+			service.create(vo);								// 등록안된 고객이면 고객정보 등록
+		}
+		data.addAttribute("fileName", saveName);			// 사인파일과 날자정보 넘김
 		data.addAttribute("date", date);
 		return "/customer/signResult";
 	}
+	// 고객별 서약서 파일 확인
 	@RequestMapping(value="/customerSign", method = RequestMethod.GET)
 	public String customerSignHandle(@RequestParam Map map, ModelMap data) throws Exception {
 		String file_name = (String) map.get("file_name");

@@ -40,4 +40,9 @@ private customerDAO dao;
 		dao.delete(phone);
 	}
 
+	@Override
+	public int read(CustomerVO vo) throws Exception {
+		return dao.read(vo);
+	}
+
 }

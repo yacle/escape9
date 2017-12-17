@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.escape.domain.AvgUtil;
 import com.escape.domain.CustomerVO;
 import com.escape.domain.SurveyVO;
 import com.escape.service.customerService;
@@ -77,10 +78,12 @@ public class masterController {
 	@RequestMapping(value="/game/{category}", method = RequestMethod.GET)
 	public ModelAndView gameSurveyHandle(@PathVariable String category) throws Exception{
 		List<SurveyVO> list = survey.categoryRead(category);
+		Map avg = AvgUtil.avgMaker(list);
 		ModelAndView mav = new ModelAndView("temp");
 		mav.addObject("section", "/master/gameSurvey");
 		mav.addObject("game", category);
 		mav.addObject("list", list);
+		mav.addObject("avg", avg);
 		return mav;
 	}
 }

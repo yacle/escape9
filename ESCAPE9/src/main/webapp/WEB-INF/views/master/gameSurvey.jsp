@@ -72,6 +72,16 @@ tr:hover {background-color:#f5f5f5;}
 			<td>${vo.name}</td>
 		</tr>
 	</c:forEach>
+	<tr>
+			<td>${avg.eval}</td>
+			<td>${avg.env}</td>
+			<td>${avg.thema}</td>
+			<td>${avg.comp}</td>
+			<td>${avg.diff}</td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
 	</tbody>
 </table>
 </body>
