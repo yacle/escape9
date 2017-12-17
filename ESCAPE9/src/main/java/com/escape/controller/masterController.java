@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.escape.domain.AvgUtil;
@@ -41,6 +42,16 @@ public class masterController {
 		mav.addObject("list", list);
 		return mav;
 	}
+	
+	// 고객 comments 입력
+		@RequestMapping(value="/comment", method = RequestMethod.POST)
+		@ResponseBody
+		public ModelAndView customerCommentsHandle(CustomerVO vo) throws Exception {
+			customer.update(vo);
+			ModelAndView mav = new ModelAndView("temp");
+			mav.addObject("section", "master/customerList");
+			return mav;
+		}
 	// 고객별 설문내용 리스트
 	@RequestMapping(value="/customer_survey", method = RequestMethod.GET)
 	public ModelAndView customerSurveyHandle(@RequestParam Map map) throws Exception {

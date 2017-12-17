@@ -82,7 +82,7 @@ private String uploadPath;
 		data.addAttribute("name", name);
 		return "/customer/signResult";
 	}
-	
+	// 고객별 서약서 파일 다운로드
 	@RequestMapping(value="/oath", method = RequestMethod.POST)
 	public String oathHandle(CustomerVO vo, ModelMap data) throws Exception {
 		String imgData =vo.getImgData();

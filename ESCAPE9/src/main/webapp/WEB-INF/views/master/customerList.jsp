@@ -36,7 +36,7 @@ tr:hover {background-color:#f5f5f5;}
 			<td><a href="/master/customer_survey?phone=${vo.phone}&&name=${vo.name}">${vo.name}</a></td>
  			<td>${vo.phone}</td>
 			<td>${vo.email}</td>
-			<td><span id="comment" attr-data="${vo.phone}">${vo.comments}</span></td>
+			<td class="comment" data="${vo.phone}">${vo.comments}</td>
 			<td><a href="/master/customer_sign?phone=${vo.phone}&&name=${vo.name}">서약서</a></td>
 		</tr>
 	</c:forEach>
@@ -45,10 +45,48 @@ tr:hover {background-color:#f5f5f5;}
 <div align="center">
 	<button type="button" onClick="history.back()">메인</button>
 </div>
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+     	<div class="modal-header" style="padding:7px 7px; text-align:center;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4>고객정보</h4>
+        </div>
+        <div class="modal-body">
+          <form action="/master/comment" method="post" role="form">
+            <div class="form-group">
+              <textarea class="form-control" id="comments" name="comments"></textarea>
+            </div>
+            <button type="button" class="btn btn-success" id="save">저장</button>
+         	<button type="submit" class="btn btn-danger" data-dismiss="modal">취소</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> 
 </body>
 </html>
 <script>
-	$("#comment").click(function(){
-		window.alert("tt");
+var phone;
+	$(".comment").click(function(){
+		var tt = $(this);
+		phone = tt.attr("data");
+		$("#myModal").modal();
+	})
+	$("#save").click(function(){
+		$.ajax({
+			type: "post",
+			async: false,
+			url: "/master/comment",
+			data:{
+				"phone": phone,
+				"comments": $("#comments").val()
+			}
+		}).done(function(){
+			location.reload(true);
+		})
 	})
 </script>

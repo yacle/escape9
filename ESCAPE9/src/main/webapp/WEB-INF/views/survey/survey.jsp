@@ -39,34 +39,34 @@
 		2. 게임 종합평가 _ 게임이 흥미로웠는지 종합적으로 평가
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=1>1
+				<input type="radio" name="total_eval" value=1>1 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=2>2
+				<input type="radio" name="total_eval" value=2>2 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=3>3
+				<input type="radio" name="total_eval" value=3>3 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=4>4
+				<input type="radio" name="total_eval" value=4>4 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=5>5
+				<input type="radio" name="total_eval" value=5>5 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=6>6
+				<input type="radio" name="total_eval" value=6>6 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=7>7
+				<input type="radio" name="total_eval" value=7>7 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=8>8
+				<input type="radio" name="total_eval" value=8>8 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=9>9
+				<input type="radio" name="total_eval" value=9>9 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=10>10
+				<input type="radio" name="total_eval" value=10>10 &#8193;
 				</label>
 			</div>
 		</p><hr/>
@@ -74,34 +74,34 @@
 		3. 미션 환경 _ 인테리어, 음악, 소품등 테마에 맞게 적절하게 꾸며졌는지?
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=1>1
+				<input type="radio" name="environment" value=1>1 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=2>2
+				<input type="radio" name="environment" value=2>2 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=3>3
+				<input type="radio" name="environment" value=3>3 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=4>4
+				<input type="radio" name="environment" value=4>4 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=5>5
+				<input type="radio" name="environment" value=5>5 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=6>6
+				<input type="radio" name="environment" value=6>6 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=7>7
+				<input type="radio" name="environment" value=7>7 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=8>8
+				<input type="radio" name="environment" value=8>8 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=9>9
+				<input type="radio" name="environment" value=9>9 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=10>10
+				<input type="radio" name="environment" value=10>10 &#8193;
 				</label>
 			</div>
 		</p><hr/>
@@ -109,34 +109,34 @@
 		4. 미션 테마 평가 _ 미션의 테마가 흥미로웠는지?
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=1>1
+				<input type="radio" name="thema" value=1>1 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=2>2
+				<input type="radio" name="thema" value=2>2 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=3>3
+				<input type="radio" name="thema" value=3>3 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=4>4
+				<input type="radio" name="thema" value=4>4 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=5>5
+				<input type="radio" name="thema" value=5>5 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=6>6
+				<input type="radio" name="thema" value=6>6 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=7>7
+				<input type="radio" name="thema" value=7>7 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=8>8
+				<input type="radio" name="thema" value=8>8 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=9>9
+				<input type="radio" name="thema" value=9>9 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=10>10
+				<input type="radio" name="thema" value=10>10 &#8193;
 				</label>
 			</div>
 		</p><hr/>
@@ -144,34 +144,34 @@
 		5. 미션 구성 _ 단서와 퍼즐, 힌트등 게임구성이 자연스러우며 개연성이 있었는지?
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=1>1
+				<input type="radio" name="composition" value=1>1 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=2>2
+				<input type="radio" name="composition" value=2>2 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=3>3
+				<input type="radio" name="composition" value=3>3 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=4>4
+				<input type="radio" name="composition" value=4>4 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=5>5
+				<input type="radio" name="composition" value=5>5 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=6>6
+				<input type="radio" name="composition" value=6>6 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=7>7
+				<input type="radio" name="composition" value=7>7 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=8>8
+				<input type="radio" name="composition" value=8>8 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=9>9
+				<input type="radio" name="composition" value=9>9 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=10>10
+				<input type="radio" name="composition" value=10>10 &#8193;
 				</label>
 			</div>
 		</p><hr/>
@@ -179,34 +179,34 @@
 		6. 난이도 _ 체감 난이도
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=1>1
+				<input type="radio" name="difficulty" value=1>1 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=2>2
+				<input type="radio" name="difficulty" value=2>2 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=3>3
+				<input type="radio" name="difficulty" value=3>3 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=4>4
+				<input type="radio" name="difficulty" value=4>4 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=5>5
+				<input type="radio" name="difficulty" value=5>5 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=6>6
+				<input type="radio" name="difficulty" value=6>6 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=7>7
+				<input type="radio" name="difficulty" value=7>7 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=8>8
+				<input type="radio" name="difficulty" value=8>8 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=9>9
+				<input type="radio" name="difficulty" value=9>9 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=10>10
+				<input type="radio" name="difficulty" value=10>10 &#8193;
 				</label>
 			</div>
 		</p><hr/>
@@ -214,19 +214,19 @@
 		7. 방탈출 게임 횟수
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="repeat_num" value=0>0 회
+				<input type="radio" name="repeat_num" value=0>0 회 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="repeat_num" value=1>1 회
+				<input type="radio" name="repeat_num" value=1>1 회 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="repeat_num" value=2>2 회
+				<input type="radio" name="repeat_num" value=2>2 회 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="repeat_num" value=3>3 회
+				<input type="radio" name="repeat_num" value=3>3 회 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="repeat_num" value=4>4 회이상
+				<input type="radio" name="repeat_num" value=4>4 회이상 &#8193;
 				</label>
 			</div>
 		</p><hr/>
@@ -234,21 +234,21 @@
 		8. 이스케이프 9 을 알게된 경로는?
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="route" value="간판">간판
+				<input type="radio" name="route" value="간판">간판 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="route" value="지인추천">지인추천
+				<input type="radio" name="route" value="지인추천">지인추천 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="route" value="블로그">네이버 블로그 (검색어:<input type="text" name="route_1" size="20">)
+				<input type="radio" name="route" value="블로그">네이버 블로그 (검색어:<input type="text" name="route_1" size="20">) &#8193;
 				</label>
 			</div></p><p>
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="route" value="SNS">SNS
+				<input type="radio" name="route" value="SNS">SNS &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="route" value="재방문">재방문
+				<input type="radio" name="route" value="재방문">재방문 &#8193;
 				</label>
 				<label class="radio-inline">
 				<input type="radio" name="route" value="기타">기타(<input type="text" name="route_2" size="20">)
