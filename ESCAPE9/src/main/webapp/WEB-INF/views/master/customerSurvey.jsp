@@ -67,6 +67,9 @@ tr:hover {background-color:#f5f5f5;}
 		</tr>
 	</c:forEach>
 	</tbody>
-</table>
+</table><br/>
+<div align="center">
+	<button type="button" onClick="history.back()">BACK</button>
+</div>
 </body>
 </html>

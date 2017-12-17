@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
 
@@ -30,6 +31,9 @@ private customerService service;
 ServletContext application;
 @Inject
 SimpleDateFormat sdf;
+@Resource(name = "uploadPath")
+private String uploadPath;
+
 	@RequestMapping(value="/", method = RequestMethod.GET )
 	public ModelAndView homeHandle() {
 		ModelAndView mav = new ModelAndView("temp");
@@ -41,10 +45,9 @@ SimpleDateFormat sdf;
 	public String signHandle() {
 		return "customer/sign3";
 	}
-	// 서약서 sign 및 고객정보 저장
+	// 서약서 sign 임시저장 및 고객정보 DB 저장
 	@RequestMapping(value="/signResult", method = RequestMethod.POST)
 	public String signPOSTHandle(CustomerVO vo, ModelMap data) throws Exception {
-		Calendar cal = Calendar.getInstance();
 		String date = sdf.format(System.currentTimeMillis());
 		String imgData =vo.getImgData();
 		String name = vo.getName();
@@ -80,6 +83,19 @@ SimpleDateFormat sdf;
 		return "/customer/signResult";
 	}
 	
-	
+	@RequestMapping(value="/oath", method = RequestMethod.POST)
+	public String oathHandle(CustomerVO vo, ModelMap data) throws Exception {
+		String imgData =vo.getImgData();
+		imgData = imgData.replaceAll("data:image/png;base64,", "");
+		byte[] file = Base64.decodeBase64(imgData);
+		File dir = new File(uploadPath);
+		if (!dir.isDirectory()) {
+			dir.mkdirs();
+		}
+		String fileName = vo.getFile_name();	// 저장할 파일명 만들기(작성자 이름_전화번호_작성날자.png)
+		File target = new File(uploadPath, fileName);				
+		FileCopyUtils.copy(file, target);					// 파일 저장하기
+		return "redirect:/";
+	}
 	
 }

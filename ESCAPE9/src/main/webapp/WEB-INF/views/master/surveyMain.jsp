@@ -95,7 +95,9 @@ tr:hover {background-color:#f5f5f5;}
 		</tr>
 	</c:forEach>
 	</tbody>
-</table>
-
+</table><br/>
+<div align="center">
+	<a href="/master"><button type="button">메인</button></a>
+</div>
 </body>
 </html>

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AvgUtil {
-	public static Map avgMaker(List<SurveyVO> list) {
+	public static Map<String, Double> avgMaker(List<SurveyVO> list) {
 		double total1 = 0.0;
 		double total2 = 0.0;
 		double total3 = 0.0;
@@ -18,12 +18,12 @@ public class AvgUtil {
 			total4 += vo.getComposition();
 			total5 += vo.getDifficulty();
 		}
-		long eval = round(total1/list.size(), 1);
-		long env = Math.round(total2/list.size());
-		long thema = Math.round(total3/list.size());
-		long comp = Math.round(total4/list.size());
-		long diff = Math.round(total5/list.size());
-		Map<String, Long> map = new HashMap<String, Long>();
+		double eval = (double)Math.round((total1/list.size())*10)/10;
+		double env = (double)Math.round((total2/list.size())*10)/10;
+		double thema = (double)Math.round((total3/list.size())*10)/10;
+		double comp = (double)Math.round((total4/list.size())*10)/10;
+		double diff = (double)Math.round((total5/list.size())*10)/10;
+		Map<String, Double> map = new HashMap<String, Double>();
 		map.put("eval", eval);
 		map.put("env", env);
 		map.put("thema", thema);

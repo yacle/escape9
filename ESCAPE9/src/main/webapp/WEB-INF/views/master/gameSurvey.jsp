@@ -46,6 +46,7 @@ tr:hover {background-color:#f5f5f5;}
 	<c:otherwise>죽음의 예배당</c:otherwise>
 </c:choose>]
 </h2>
+<div class="table-responsive">
 <table width="100%">
 	<thead>
 		<tr>
@@ -72,7 +73,7 @@ tr:hover {background-color:#f5f5f5;}
 			<td>${vo.name}</td>
 		</tr>
 	</c:forEach>
-	<tr>
+		<tr style="border-top: 2px solid black;">
 			<td>${avg.eval}</td>
 			<td>${avg.env}</td>
 			<td>${avg.thema}</td>
@@ -83,6 +84,10 @@ tr:hover {background-color:#f5f5f5;}
 			<td></td>
 		</tr>
 	</tbody>
-</table>
+</table><br/>
+<div align="center">
+	<a href="/master"><button class="btn" type="button">메인</button></a>
+</div>
+</div>
 </body>
 </html>

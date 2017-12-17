@@ -234,24 +234,24 @@
 		8. 이스케이프 9 을 알게된 경로는?
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="route" value="1">간판
+				<input type="radio" name="route" value="간판">간판
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="route" value="2">지인추천
+				<input type="radio" name="route" value="지인추천">지인추천
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="route" value="3">네이버 블로그 (검색어:<input type="text" name="route_1" size="20">)
+				<input type="radio" name="route" value="블로그">네이버 블로그 (검색어:<input type="text" name="route_1" size="20">)
 				</label>
 			</div></p><p>
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="route" value="4">SNS
+				<input type="radio" name="route" value="SNS">SNS
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="route" value="5">재방문
+				<input type="radio" name="route" value="재방문">재방문
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="route" value="6">기타(<input type="text" name="route_2" size="20">)
+				<input type="radio" name="route" value="기타">기타(<input type="text" name="route_2" size="20">)
 				</label>
 			</div>
 		</p><hr/>
