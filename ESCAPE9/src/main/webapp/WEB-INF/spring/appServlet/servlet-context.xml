@@ -35,7 +35,6 @@
 	</beans:bean>
 	
 	<!-- about converter -->
-	<beans:bean class="com.fasterxml.jackson.databind.ObjectMapper" />
 	<beans:bean class="java.text.SimpleDateFormat">
 		<beans:constructor-arg name="pattern" value="yyyyMMddHHmmss"/>
 	</beans:bean>
@@ -46,6 +45,6 @@
 	</beans:bean>
 	<!-- file upload path -->
 	<beans:bean id="uploadPath" class="java.lang.String">
-		<beans:constructor-arg value="C:\Users\yacle\Documents\escape9\escape9\ESCAPE9\src\main\webapp\oath"></beans:constructor-arg>
+		<beans:constructor-arg value="C:\web server\image"></beans:constructor-arg>
 	</beans:bean>
 </beans:beans>

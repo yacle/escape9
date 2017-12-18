@@ -34,15 +34,24 @@
     .btn.right:active{
       border-bottom:2px solid #c1370e;
     }
+        .btn.home{
+      background-color: #1f75d9;
+      border-bottom:5px solid #165195;
+    }
+    .btn.home:active{
+      border-bottom:2px solid #165195;
+    }
   </style>
 <body>
 	<div class="row" style="margin-top: 200px">
-		<div class="col-xs-6" align="right">
+		<div class="col-xs-4" align="center">
 			<a class="btn left" href="/master/customer">고객정보</a>
 		</div>
-		<div class="col-xs-1"></div>
-		<div class="col-xs-5" align="left">
+		<div class="col-xs-4" align="center">
 			<a class="btn right" href="/master/stats">설문 통계</a>
+		</div>
+		<div class="col-xs-4" align="center">
+			<a class="btn home" href="/">설문지</a>
 		</div>
 	</div>
 </body>
