@@ -71,6 +71,7 @@ private String uploadPath;
 		}
 		data.addAttribute("fileName", saveName);			// 사인파일과 날자정보 넘김
 		data.addAttribute("date", date);
+		data.addAttribute("name", name);
 		return "/customer/signResult";
 	}
 	// 고객별 서약서 파일 확인

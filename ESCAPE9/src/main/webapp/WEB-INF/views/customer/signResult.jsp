@@ -24,11 +24,25 @@
 </script>
 </head>
 <style>
-.img {
-	background-image:url("/images/brochure.png");
-	background-size: 800px 600px;
-	background-repeat: no-repeat;
+.wrapper {
+  position: relative;
+  width: 800px;
+  height: 910px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
+img{
+	position: absolute; 
+	left: 0; 
+	top: 0;
+}
+img.sign{
+	left: 20px;
+	top: 10px;
+}
+
 </style>
 <body>
     <form name="imgForm" id="imgForm" action="/oath" method="post">
@@ -38,19 +52,22 @@
 	<c:if test="${!empty date}">
 	    <div class="printDiv">
 			<div class="img">
-				<img src="/saveSignImage/${fileName}" width="800" height="600">
+				<div class="wrapper">
+					<img src="/images/sign_back.png" width="800px" height="900px">
+					<img src="/saveSignImage/${fileName}" class="sign" width="800px" height="910px">
+				</div><br/>
 			</div>
-			<div style="margin-left: 300px;">
-				<h5>[작성일시 : ${date}]</h5>
+			<div style="margin-left: 260px;">
+				<h5>[작성자 : ${name} &#8193;작성일시 : ${date}]</h5>
 			</div>
 		</div>
-		<div>
+		<div style="margin-left:390;">
 			<button type="button" id="btnDown" class="btn btn-primary">확인</a>
 		</div>
 	</c:if>
 	<c:if test="${empty date }">
 		<div>
-			<img src="/oath/${fileName}" width="1200" height="900">
+			<img src="/oath/${fileName}">
 		</div>
 		<div align="center">
 			<button type="button" class="btn btn-default" onClick="history.back()">목록</button>
