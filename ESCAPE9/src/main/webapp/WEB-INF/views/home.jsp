@@ -44,7 +44,7 @@
 <body>
 	<div class="row" style="margin-top: 200px">
 		<div class="col-xs-6" align="right">
-			<a class="btn left" href="/sign" id="sign">사전 안내문 및 서약서</a>
+			<a class="btn left" href="#" id="sign">사전 안내문 및 서약서</a>
 		</div>
 		<div class="col-xs-1"></div>
 		<div class="col-xs-5" align="left">
@@ -54,9 +54,7 @@
 </body>
 </html>
 <script>
-<%--
 	$("#sign").click(function(){
-		window.open("/sign", "signature", "width=810, height=750");
+		window.open("/sign", "signature", "width=830, height=1000");
 	})
-	--%>
 </script>

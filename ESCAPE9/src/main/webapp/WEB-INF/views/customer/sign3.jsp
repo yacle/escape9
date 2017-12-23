@@ -10,26 +10,18 @@
 <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
 </head>
 <style>
-.wrapper {
-  position: relative;
-  width: 800px;
-  height: 900px;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+
 .signature-pad {
   position: absolute;
   left: 0;
   top: 0;
-  width:820px;
-  height:910px;
+  width:830;
+  height:907px;
 }
 table{
   position: absolute;
-  width=800;
-  height=890;
+  width:830;
+  height:890;
   left: 0;
   top: 0;
 }
@@ -45,14 +37,16 @@ th{
 td{
 	border: 1px solid black;
 	padding: 20px;
+	font-size: 15px;
 }
 .info{
-	width: 800px;
+  position: absolute;
+  left: 0;
+  top: 910;
 	text-align: center;
 }
 </style>
 <body>
-	<div class="wrapper">
 		<table>
 			<thead>
 				<tr height="62px">
@@ -109,23 +103,22 @@ td{
 				</tr>
 				<tr>
 					<td style="text-align:right">상기내용을 확인하였습니다.</td>
-					<td>서명</td>
+					<td><button type="button" id="sign_pad">서명</button></td>
 				</tr>
 			</tbody>
 		</table>
 		<canvas id="signature-pad" class="signature-pad" width=820 height=910></canvas>
-	</div><br/>
-	<div class="info">
-		<form name="imgForm" id="imgForm" action="/signResult" method="post">
-			<input type="hidden" id="imgData" name="imgData">
-			<b>이름 : </b><input type="text" name="name"/>
-			<b>전화번호 : </b><input type="number" name="phone"/>
-			<b>이메일 : </b><input type="email" name="email"/>
-	    </form>
-		<button id="save">저장</button>
-		<button id="clear">지우기</button>
-		<button type="button" onClick="history.back()">취소</button>
-	</div>
+		<div class="info">
+			<form name="imgForm" id="imgForm" action="/signResult" method="post">
+				<input type="hidden" id="imgData" name="imgData">
+				<b>이름 : </b><input type="text" name="name"/>
+				<b>전화번호 : </b><input type="number" name="phone"/>
+				<b>이메일 : </b><input type="email" name="email"/>
+		    </form>
+			<button id="save">저장</button>
+			<button id="clear">지우기</button>
+			<button type="button" onClick="history.back()">취소</button>
+		</div>
 	</body>
 </html>
 <script>
