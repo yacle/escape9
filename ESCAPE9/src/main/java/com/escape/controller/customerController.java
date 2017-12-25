@@ -1,6 +1,7 @@
 package com.escape.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -42,8 +43,36 @@ private String uploadPath;
 	}
 	// sign pad 열기
 	@RequestMapping(value="/sign", method = RequestMethod.GET)
-	public String signHandle() {
+	public String signHandle(@RequestParam Map map, ModelMap data) {
+		if(map.isEmpty()) {
+		}else {
+			String fileName = (String)map.get("fileName");
+			data.addAttribute("fileName", fileName);
+		}
 		return "customer/sign3";
+	}
+	
+	@RequestMapping(value="/sign_pad", method = RequestMethod.GET)
+	public String signPadHandle() {
+		return "customer/sign_pad";
+	}
+	
+	@RequestMapping(value="/sign", method = RequestMethod.POST)
+	public void signPadPostHandle(CustomerVO vo) throws IOException {
+		String date = sdf.format(System.currentTimeMillis());
+		String imgData =vo.getImgData();
+		String name = vo.getName();
+		String phone = vo.getPhone();
+		imgData = imgData.replaceAll("data:image/png;base64,", "");
+		byte[] file = Base64.decodeBase64(imgData);
+		String path = application.getRealPath("/saveSignImage");	// 파일저장할 폴더
+		File dir = new File(path);
+		if (!dir.isDirectory()) {
+			dir.mkdirs();
+		}
+		String saveName = name+"_"+phone+"_"+date+".png";	// 저장할 파일명 만들기(작성자 이름_전화번호_작성날자.png)
+		File target = new File(path, saveName);				
+		FileCopyUtils.copy(file, target);
 	}
 	// 서약서 sign 임시저장 및 고객정보 DB 저장
 	@RequestMapping(value="/signResult", method = RequestMethod.POST)

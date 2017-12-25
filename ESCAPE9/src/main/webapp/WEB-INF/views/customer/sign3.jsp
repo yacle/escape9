@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,13 +11,12 @@
 <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
 </head>
 <style>
-
 .signature-pad {
   position: absolute;
   left: 0;
   top: 0;
   width:830;
-  height:907px;
+  height:800px;
 }
 table{
   position: absolute;
@@ -93,7 +93,7 @@ td{
 							- 이벤트 및 프로모션 등 내부행사 소식을 알리기 위한 목적<br/>
 							&#8193;&#8193;{개인정보의 항목}<br/>
 							- 필수입력 사항 : 이용자의 식별을 위한 정보 (이름, 휴대폰 번호, 이메이주소)<br/>
-							&#8193;&#8193;{개인정보의 보유 및 이용기간}
+							&#8193;&#8193;{개인정보의 보유 및 이용기간}<br/>
 							- 개인정보의 수집은 관련 법령의 규정에 의거 5년간 보유합니다.<br/>
 						</p>
 						<p class="italic">
@@ -103,11 +103,20 @@ td{
 				</tr>
 				<tr>
 					<td style="text-align:right">상기내용을 확인하였습니다.</td>
-					<td><button type="button" id="sign_pad">서명</button></td>
+					<td>
+					<c:choose>
+						<c:when test="${!empty fileName}">
+							<img src="/saveSignImage/${fileName}" width="100px" height="75px">
+						</c:when>
+						<c:otherwise>
+							<button id="sign_pad" type="button">서명</button>
+						</c:otherwise>
+					</c:choose>
+					</td>
 				</tr>
 			</tbody>
 		</table>
-		<canvas id="signature-pad" class="signature-pad" width=820 height=910></canvas>
+		<canvas id="signature-pad" class="signature-pad" width=820 height=800></canvas>
 		<div class="info">
 			<form name="imgForm" id="imgForm" action="/signResult" method="post">
 				<input type="hidden" id="imgData" name="imgData">
@@ -128,15 +137,18 @@ var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
 	});
 var saveButton = document.getElementById('save');
 var cancelButton = document.getElementById('clear');
-
 saveButton.addEventListener('click', function (event) {
-	var data = signaturePad.toDataURL('image/png');
-	$("#imgData").val(data);
 	$("#imgForm").submit();
-	
 });
-
 cancelButton.addEventListener('click', function (event) {
   signaturePad.clear();
 });
+
+$("#sign_pad").click(function(){
+	if ($("#name").val()=='') { alert('이름을 입력해주세요');$("#name").focus();return false;}
+	if ($("#phone").val()=='') { alert('전화번호를 입력해주세요');$("#phone").focus();return false;}
+	if ($("#email").val()=='') { alert('이메일을 입력하세요');$("#email").focus();return false;}
+	window.open("/sign_pad", "sign_pad", "scrollbars=yes,resizable=yes,width=200,height=200,left=200,top=200");
+	window.close();
+})
 </script>
