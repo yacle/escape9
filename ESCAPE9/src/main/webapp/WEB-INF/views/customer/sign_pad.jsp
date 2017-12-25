@@ -33,9 +33,6 @@
   <button id="save">저장</button>
   <button id="clear">지우기</button>
   <button onClick="javascript:window.close()">취소</button>
-	<form name="imgForm" id="imgForm" action="/sign" method="post">
-		<input type="hidden" id="imgData" name="imgData">
-    </form>
 </div>
 </body>
 </html>
@@ -51,7 +48,17 @@ var signaturePad = new SignaturePad(document.getElementById('signature-pad'), {
 	saveButton.addEventListener('click', function (event) {
 		var data = signaturePad.toDataURL('image/png');
 		$("#imgData").val(data);
-		$("#imgForm").submit();
+// ajax 사인데이터 보내기
+		$.ajax({
+			type: "post",
+			async: false,
+			url: "/sign ",
+			data:{
+				"imgData": data,
+			}
+		}).done(function(){
+			window.close();
+		})
 	});
 
 	cancelButton.addEventListener('click', function (event) {

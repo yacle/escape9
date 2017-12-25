@@ -85,7 +85,8 @@ td{
 				</tr>
 				<tr>
 					<td colspan="2">
-						<p class="serif">
+						<p>
+						<div class="serif">
 							<div align="center">{개인정보 보관 이용 및 수집에 관한 동의}</div><br/>
 							이용자 본인은 아래의  개인정보 수집 및 이용하는 것에 동의합니다.<br/>
 							&#8193;&#8193;{개인 정보 수집 및 이용목적}<br/>
@@ -95,6 +96,7 @@ td{
 							- 필수입력 사항 : 이용자의 식별을 위한 정보 (이름, 휴대폰 번호, 이메이주소)<br/>
 							&#8193;&#8193;{개인정보의 보유 및 이용기간}<br/>
 							- 개인정보의 수집은 관련 법령의 규정에 의거 5년간 보유합니다.<br/>
+						</div>
 						</p>
 						<p class="italic">
 						동사는 상기 안내된 목적 이외에 어떠한 용도로도 개인정보를 사용하지 않습니다.
@@ -109,7 +111,7 @@ td{
 							<img src="/saveSignImage/${fileName}" width="100px" height="75px">
 						</c:when>
 						<c:otherwise>
-							<button id="sign_pad" type="button">서명</button>
+							<a href="/sign_pad" onClick="javascript:window.open(this.href, '','top=200, left=200, width=250, height=250'); return false;">서명</a>
 						</c:otherwise>
 					</c:choose>
 					</td>
@@ -148,7 +150,7 @@ $("#sign_pad").click(function(){
 	if ($("#name").val()=='') { alert('이름을 입력해주세요');$("#name").focus();return false;}
 	if ($("#phone").val()=='') { alert('전화번호를 입력해주세요');$("#phone").focus();return false;}
 	if ($("#email").val()=='') { alert('이메일을 입력하세요');$("#email").focus();return false;}
-	window.open("/sign_pad", "sign_pad", "scrollbars=yes,resizable=yes,width=200,height=200,left=200,top=200");
-	window.close();
+	
+//	window.open("/sign_pad", "sign_pad", "scrollbars=yes,resizable=yes,width=200,height=200,left=200,top=200");
 })
 </script>

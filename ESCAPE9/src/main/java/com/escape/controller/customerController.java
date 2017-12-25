@@ -49,20 +49,18 @@ private String uploadPath;
 			String fileName = (String)map.get("fileName");
 			data.addAttribute("fileName", fileName);
 		}
-		return "customer/sign3";
+		return "customer/sign2";
 	}
 	
 	@RequestMapping(value="/sign_pad", method = RequestMethod.GET)
-	public String signPadHandle() {
+	public String signPadHandle(CustomerVO vo) {
 		return "customer/sign_pad";
 	}
 	
 	@RequestMapping(value="/sign", method = RequestMethod.POST)
-	public void signPadPostHandle(CustomerVO vo) throws IOException {
+	public String signPadPostHandle(CustomerVO vo) throws IOException {
 		String date = sdf.format(System.currentTimeMillis());
 		String imgData =vo.getImgData();
-		String name = vo.getName();
-		String phone = vo.getPhone();
 		imgData = imgData.replaceAll("data:image/png;base64,", "");
 		byte[] file = Base64.decodeBase64(imgData);
 		String path = application.getRealPath("/saveSignImage");	// 파일저장할 폴더
@@ -70,9 +68,10 @@ private String uploadPath;
 		if (!dir.isDirectory()) {
 			dir.mkdirs();
 		}
-		String saveName = name+"_"+phone+"_"+date+".png";	// 저장할 파일명 만들기(작성자 이름_전화번호_작성날자.png)
+		String saveName = date+".png";	// 저장할 파일명 만들기(작성자 이름_전화번호_작성날자.png)
 		File target = new File(path, saveName);				
 		FileCopyUtils.copy(file, target);
+		return "redirect:/sign?fileName="+saveName;
 	}
 	// 서약서 sign 임시저장 및 고객정보 DB 저장
 	@RequestMapping(value="/signResult", method = RequestMethod.POST)
