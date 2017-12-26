@@ -1,9 +1,9 @@
 package com.escape.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.escape.domain.CustomerVO;
-import com.escape.domain.SurveyVO;
 
 public interface customerService {
 	

@@ -112,7 +112,7 @@ td{
 				</tr>
 				<tr height="62px">
 					<td style="text-align:center; padding:0">상기내용을 확인하였습니다.</td>
-					<td>서명</td>
+					<td style="padding:0">서명</td>
 				</tr>
 			</tbody>
 		</table>
@@ -121,13 +121,13 @@ td{
 		<div class="info">
 			<form name="imgForm" id="imgForm" action="/signResult" method="post">
 				<input type="hidden" id="imgData" name="imgData">
-				<b>이름 : </b><input type="text" name="name"/>
-				<b>전화번호 : </b><input type="number" name="phone"/>
-				<b>이메일 : </b><input type="email" name="email"/>
+				<b>이름 : </b><input type="text" name="name" id="name"/>
+				<b>전화번호 : </b><input type="number" name="phone" id="phone"/>
+				<b>이메일 : </b><input type="email" name="email" id="email"/>
 		    </form>
 			<button id="save">저장</button>
 			<button id="clear">지우기</button>
-			<button type="button" onClick="history.back()">취소</button>
+			<button type="button" onClick="javascript:window.close()">취소</button>
 		</div>
 	</body>
 </html>
@@ -140,13 +140,28 @@ var signaturePad2 = new SignaturePad(document.getElementById('signature-pad2'), 
 	  backgroundColor: 'rgba(255, 255, 255, 0)',
 	  penColor: 'rgb(255, 0, 0)'
 	});
-var saveButton = document.getElementById('save');
-var cancelButton = document.getElementById('clear');
-saveButton.addEventListener('click', function (event) {
-	$("#imgForm").submit();
-});
-cancelButton.addEventListener('click', function (event) {
-  signaturePad.clear();
-  signaturePad2.clear();
-});
+$("#save").click(function(){
+	if ($("#name").val()=='') { alert('이름을 입력해주세요');$("#name").focus();return false;}
+	if ($("#phone").val()=='') { alert('전화번호를 입력해주세요');$("#phone").focus();return false;}
+	if ($("#email").val()=='') { alert('이메일을 입력하세요');$("#email").focus();return false;}
+	var data = signaturePad2.toDataURL('image/png');
+	$.ajax({
+		type: "post",
+		async: false,
+		url: "/signResult",
+		data:{
+			"imgData": data,
+			"name": $("#name").val(),
+			"phone":$("#phone").val(),
+			"email": $("#email").val()
+		}
+	}).done(function(){
+		window.alert("저장되었습니다.");
+		window.close();
+	})
+})
+$("#clear").click(function(){
+	signaturePad.clear();
+	signaturePad2.clear();
+})
 </script>

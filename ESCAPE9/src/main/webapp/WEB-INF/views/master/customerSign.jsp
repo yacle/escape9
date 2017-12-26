@@ -20,16 +20,18 @@ tr:hover {background-color:#f5f5f5;}
 <div>
 	<h2>[${name}] 님의 서약서</h2>
 </div>
-<table>
+<table width="80%">
 	<thead>
 		<tr>
 			<th>서약서</th>
+			<th>입력일자</th>
 		</tr>
 	</thead>
 	<tbody>
-  	<c:forEach var="vo" items="${list}">
+  	<c:forEach var="map" items="${list}">
 		<tr>
- 			<td><a href="/customerSign?file_name=${vo.file_name}&&name=${vo.name}">${vo.file_name}</a></td>
+ 			<td><a href="/customerSign?file_name=${map.file_name}&&name=${name}&&add_date=${map.add_date}">${map.file_name}</a></td>
+ 			<td>${map.add_date}</td>
 		</tr>
 	</c:forEach>
 	</tbody>

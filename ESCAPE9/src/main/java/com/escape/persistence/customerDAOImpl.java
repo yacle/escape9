@@ -1,6 +1,7 @@
 package com.escape.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -8,7 +9,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.escape.domain.CustomerVO;
-import com.escape.domain.SurveyVO;
 @Repository
 public class customerDAOImpl implements customerDAO {
 	@Inject

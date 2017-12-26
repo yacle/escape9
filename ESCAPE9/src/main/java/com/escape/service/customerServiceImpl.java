@@ -1,14 +1,13 @@
 package com.escape.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.escape.domain.CustomerVO;
-import com.escape.domain.SurveyVO;
 import com.escape.persistence.customerDAO;
 @Service
 public class customerServiceImpl implements customerService{

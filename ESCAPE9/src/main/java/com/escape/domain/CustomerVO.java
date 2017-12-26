@@ -7,6 +7,8 @@ public class CustomerVO {
 	private String imgData;
 	private String file_name;
 	private String comments;
+	private String add_date;
+	
 	public String getName() {
 		return name;
 	}
@@ -42,5 +44,11 @@ public class CustomerVO {
 	}
 	public void setComments(String comments) {
 		this.comments = comments;
+	}
+	public String getAdd_date() {
+		return add_date;
+	}
+	public void setAdd_date(String add_date) {
+		this.add_date = add_date;
 	}
 }

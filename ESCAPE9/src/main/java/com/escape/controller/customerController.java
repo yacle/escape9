@@ -18,6 +18,7 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.escape.domain.CustomerVO;
@@ -32,8 +33,6 @@ private customerService service;
 ServletContext application;
 @Inject
 SimpleDateFormat sdf;
-@Resource(name = "uploadPath")
-private String uploadPath;
 
 	@RequestMapping(value="/", method = RequestMethod.GET )
 	public ModelAndView homeHandle() {
@@ -52,29 +51,9 @@ private String uploadPath;
 		return "customer/sign2";
 	}
 	
-	@RequestMapping(value="/sign_pad", method = RequestMethod.GET)
-	public String signPadHandle(CustomerVO vo) {
-		return "customer/sign_pad";
-	}
-	
-	@RequestMapping(value="/sign", method = RequestMethod.POST)
-	public String signPadPostHandle(CustomerVO vo) throws IOException {
-		String date = sdf.format(System.currentTimeMillis());
-		String imgData =vo.getImgData();
-		imgData = imgData.replaceAll("data:image/png;base64,", "");
-		byte[] file = Base64.decodeBase64(imgData);
-		String path = application.getRealPath("/saveSignImage");	// 파일저장할 폴더
-		File dir = new File(path);
-		if (!dir.isDirectory()) {
-			dir.mkdirs();
-		}
-		String saveName = date+".png";	// 저장할 파일명 만들기(작성자 이름_전화번호_작성날자.png)
-		File target = new File(path, saveName);				
-		FileCopyUtils.copy(file, target);
-		return "redirect:/sign?fileName="+saveName;
-	}
 	// 서약서 sign 임시저장 및 고객정보 DB 저장
 	@RequestMapping(value="/signResult", method = RequestMethod.POST)
+	@ResponseBody
 	public String signPOSTHandle(CustomerVO vo, ModelMap data) throws Exception {
 		String date = sdf.format(System.currentTimeMillis());
 		String imgData =vo.getImgData();
@@ -97,34 +76,13 @@ private String uploadPath;
 		if(r==0) {
 			service.create(vo);								// 등록안된 고객이면 고객정보 등록
 		}
-		data.addAttribute("fileName", saveName);			// 사인파일과 날자정보 넘김
-		data.addAttribute("date", date);
-		data.addAttribute("name", name);
-		return "/customer/signResult";
+		return "";
 	}
 	// 고객별 서약서 파일 확인
 	@RequestMapping(value="/customerSign", method = RequestMethod.GET)
-	public String customerSignHandle(@RequestParam Map map, ModelMap data) throws Exception {
-		String file_name = (String) map.get("file_name");
-		String name = (String) map.get("name");
-		data.addAttribute("fileName", file_name);
-		data.addAttribute("name", name);
+	public String customerSignHandle(CustomerVO vo, ModelMap data) throws Exception {
+		data.addAttribute("data", vo);
 		return "/customer/signResult";
-	}
-	// 고객별 서약서 파일 다운로드
-	@RequestMapping(value="/oath", method = RequestMethod.POST)
-	public String oathHandle(CustomerVO vo, ModelMap data) throws Exception {
-		String imgData =vo.getImgData();
-		imgData = imgData.replaceAll("data:image/png;base64,", "");
-		byte[] file = Base64.decodeBase64(imgData);
-		File dir = new File(uploadPath);
-		if (!dir.isDirectory()) {
-			dir.mkdirs();
-		}
-		String fileName = vo.getFile_name();	// 저장할 파일명 만들기(작성자 이름_전화번호_작성날자.png)
-		File target = new File(uploadPath, fileName);				
-		FileCopyUtils.copy(file, target);					// 파일 저장하기
-		return "redirect:/";
 	}
 	
 }

@@ -66,7 +66,7 @@ public class masterController {
 	}
 	// °í°´ ¼­¾à¼­ read
 	@RequestMapping(value="/customer_sign", method = RequestMethod.GET)
-	public ModelAndView customerSignHandle(@RequestParam Map map) throws Exception {
+	public ModelAndView customerSignHandle(@RequestParam Map<String, Object>map) throws Exception {
 		String phone= (String) map.get("phone");
 		String name= (String) map.get("name");
 		List<CustomerVO> list = customer.sign(phone);
