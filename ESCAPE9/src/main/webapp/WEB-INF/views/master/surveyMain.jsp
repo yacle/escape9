@@ -75,11 +75,8 @@ $("#game").change(function(){
         	"game": game
         },
         success:function(data) {
-        	console.log(data);
-            var result = data.json;
-            $.each(result , function(idx, val) {
-				console.log(idx + " " + val.title);
-            });
+        	var obj = JSON.parse(data);
+        	console.log(dobj.eval);
 		}
     });
 })

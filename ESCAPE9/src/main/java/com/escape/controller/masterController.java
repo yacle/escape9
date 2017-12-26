@@ -20,6 +20,7 @@ import com.escape.domain.CustomerVO;
 import com.escape.domain.SurveyVO;
 import com.escape.service.customerService;
 import com.escape.service.surveyService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 @RequestMapping("/master")
@@ -28,6 +29,8 @@ public class masterController {
 	private surveyService survey;
 	@Inject
 	private customerService customer;
+	@Inject
+	ObjectMapper mapper;
 	// 관리자 페이지
 	@RequestMapping(value="", method = RequestMethod.GET )
 	public ModelAndView masterHandle() {
@@ -109,11 +112,10 @@ public class masterController {
 	
 	@RequestMapping(value="/survey_avg", method = {RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody
-	public Map surveyAVGHandle(@RequestParam Map map) throws Exception{
-		String game = (String)map.get("game");
-		System.out.println("game = "+game);
-		Map<String, Integer> data = survey.avg(game);
-		System.out.println(data.toString());
-		return data;
+	public String surveyAVGHandle(@RequestBody Map map) throws Exception{
+		String game = (String) map.get("game");
+		Map<String, Object> data = survey.avg(game);
+		String json = mapper.writeValueAsString(data);
+		return json;
 	}
 }

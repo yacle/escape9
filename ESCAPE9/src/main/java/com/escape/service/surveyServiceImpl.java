@@ -40,7 +40,7 @@ private surveyDAO dao;
 	}
 
 	@Override
-	public Map<String, Integer> avg(String game_name) throws Exception {
+	public Map<String, Object> avg(String game_name) throws Exception {
 		return dao.avg(game_name);
 	}
 }
