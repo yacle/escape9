@@ -1,6 +1,7 @@
 package com.escape.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -38,4 +39,8 @@ private surveyDAO dao;
 		return dao.categoryRead(game_name);
 	}
 
+	@Override
+	public Map<String, Integer> avg(String game_name) throws Exception {
+		return dao.avg(game_name);
+	}
 }

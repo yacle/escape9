@@ -1,5 +1,6 @@
 package com.escape.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -7,6 +8,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -85,6 +87,13 @@ public class masterController {
 		mav.addObject("list", list);
 		return mav;
 	}
+	@RequestMapping(value="/surveyStats", method = RequestMethod.GET)
+	public Map iframeHandle(Map map) throws Exception {
+		List<SurveyVO> list = survey.list();
+		map.put("list", list);
+		return map;
+	}
+	
 	// 게임별 설문통계
 	@RequestMapping(value="/game/{category}", method = RequestMethod.GET)
 	public ModelAndView gameSurveyHandle(@PathVariable String category) throws Exception{
@@ -96,5 +105,15 @@ public class masterController {
 		mav.addObject("list", list);
 		mav.addObject("avg", avg);
 		return mav;
+	}
+	
+	@RequestMapping(value="/survey_avg", method = {RequestMethod.GET, RequestMethod.POST})
+	@ResponseBody
+	public Map surveyAVGHandle(@RequestParam Map map) throws Exception{
+		String game = (String)map.get("game");
+		System.out.println("game = "+game);
+		Map<String, Integer> data = survey.avg(game);
+		System.out.println(data.toString());
+		return data;
 	}
 }

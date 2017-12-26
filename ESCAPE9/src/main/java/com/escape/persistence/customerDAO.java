@@ -12,4 +12,5 @@ public interface customerDAO {
 	public List<CustomerVO> sign(String phone)throws Exception;
 	public void update(CustomerVO vo)throws Exception;
 	public void delete(String phone)throws Exception;
+	
 }

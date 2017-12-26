@@ -35,4 +35,9 @@
 	<select id="read_one" resultType="com.escape.domain.SurveyVO">
 		select * from survey where no=#{no}
 	</select>
+	<select id="avg" resultType="java.util.HashMap">
+		select avg(TOTAL_EVAL) as eval, avg(ENVIRONMENT) as env, avg(THEMA) as the, avg(COMPOSITION) as comp, avg(DIFFICULTY) as diff 
+		from survey 
+		where GAME_NAME=#{game_name}
+	</select>
 </mapper>

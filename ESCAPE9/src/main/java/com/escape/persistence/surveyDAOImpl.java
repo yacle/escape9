@@ -1,6 +1,7 @@
 package com.escape.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -36,5 +37,10 @@ public class surveyDAOImpl implements surveyDAO{
 	@Override
 	public SurveyVO readOne(String no) throws Exception {
 		return session.selectOne("survey.read_one", no);
+	}
+
+	@Override
+	public Map<String, Integer> avg(String game_name) throws Exception {
+		return session.selectOne("survey.avg", game_name);
 	}
 }

@@ -31,6 +31,8 @@ tr:hover {background-color:#f5f5f5;}
 				<li><a href="/master/game/4">The secret of my husband_남편</a></li>
 				<li><a href="/master/game/5">The Jungle_실종된 탐사대</a></li>
 				<li><a href="/master/game/6">Light and shade_죽음의 예배당</a></li> 
+				<li><a href="/master/game/7">The Forgotten Remains_사라진 고대유적</a></li>
+				<li><a href="/master/game/8">The Last BUNKER_보스의 은신처</a></li> 
 			</ul>
 		</li>
 		<li><a href="#">기타</a></li>
@@ -43,6 +45,8 @@ tr:hover {background-color:#f5f5f5;}
 	<c:when test="${game eq '3' }">아내의 비밀</c:when>
 	<c:when test="${game eq '4' }">남편의 비밀</c:when>
 	<c:when test="${game eq '5' }">실종된 탐사대</c:when>
+	<c:when test="${game eq '7' }">사라진 고대유겆</c:when>
+	<c:when test="${game eq '8' }">보스의 은신처</c:when>
 	<c:otherwise>죽음의 예배당</c:otherwise>
 </c:choose>]
 </h2>

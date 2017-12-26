@@ -34,6 +34,12 @@
 			<div class="radio">
 				<label><input type="radio" name="game_name" value="6">Light and shade_죽음의 예배당</label>
 			</div>
+			<div class="radio">
+				<label><input type="radio" name="game_name" value="7">The Forgotten Remains_사라진 고대유적</label>
+			</div>
+			<div class="radio">
+				<label><input type="radio" name="game_name" value="8">The Last BUNKER_보스의 은신처</label>
+			</div>
 		</p><hr/>
 		<p>
 		2. 게임 종합평가 _ 게임이 흥미로웠는지 종합적으로 평가

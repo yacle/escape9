@@ -25,4 +25,5 @@
 		delete from customer where phone=#{phone}
 	</delete>
 	
+	
 </mapper>
