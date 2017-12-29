@@ -20,7 +20,6 @@ tr:hover {background-color:#f5f5f5;}
 			<th width="15%">게임명</th>
 			<th width="4%">총점</th>
 			<th width="4%">환경</th>
-			<th width="4%">주제</th>
 			<th width="4%">구성</th>
 			<th width="5%">난이도</th>
 			<th width="7%">게임횟수</th>
@@ -50,20 +49,10 @@ tr:hover {background-color:#f5f5f5;}
 			</td>
  			<td>${vo.total_eval}</td>
 			<td>${vo.environment}</td>
-			<td>${vo.thema}</td>
 			<td>${vo.composition}</td>
  			<td>${vo.difficulty}</td>
 			<td>${vo.repeat_num}</td>
-			<td>
-			<c:choose>
-				<c:when test="${vo.route eq '1' }">간판</c:when>
-				<c:when test="${vo.route eq '2' }">지인추천</c:when>
-				<c:when test="${vo.route eq '6' }">기타</c:when>
-				<c:when test="${vo.route eq '4' }">SNS</c:when>
-				<c:when test="${vo.route eq '5' }">재방문</c:when>
-				<c:otherwise>네이버블로그</c:otherwise>
-			</c:choose>
-			</td>
+			<td>${vo.route}</td>
 			<td>${vo.comments}</td>
  			<td>${vo.join_date}</td>
 			<td>${vo.age}</td>

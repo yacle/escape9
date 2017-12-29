@@ -13,14 +13,14 @@
 <style>
 .signature-pad {
   position: absolute;
-  left: 0;
+  left: 20;
   top: 0;
   width:800;
   height:820px;
 }
 .signature-pad2 {
   position: absolute;
-  left:561;
+  left:581;
   top:810;
   width:240;
   height:90px;
@@ -29,7 +29,7 @@ table{
   position: absolute;
   width:800;
   height:890;
-  left: 0;
+  left: 20;
   top: 0;
 }
 strong{
@@ -48,7 +48,7 @@ td{
 }
 .info{
   position: absolute;
-  left: 0;
+  left: 20;
   top: 910;
 	text-align: center;
 }
@@ -127,7 +127,7 @@ td{
 		    </form>
 			<button id="save">저장</button>
 			<button id="clear">지우기</button>
-			<button type="button" onClick="javascript:window.close()">취소</button>
+			<button id="cancle">취소</button>
 		</div>
 	</body>
 </html>
@@ -160,8 +160,26 @@ $("#save").click(function(){
 		window.close();
 	})
 })
+
 $("#clear").click(function(){
 	signaturePad.clear();
 	signaturePad2.clear();
+})
+
+$("#cancle").click(function(){
+	var data = signaturePad2.toDataURL('image/png');
+	$.ajax({
+		type: "post",
+		async: false,
+		url: "/signCancle",
+		data:{
+			"imgData": data,
+			"name": $("#name").val(),
+			"phone":$("#phone").val(),
+			"email": $("#email").val()
+		}
+	}).done(function(){
+		window.close();
+	})
 })
 </script>

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <title>설문리스트</title>
 </head>
 <style>
@@ -38,7 +39,9 @@ tr:hover {background-color:#f5f5f5;}
 		<li><a href="#">기타</a></li>
 	</ul><br/>
 <!-- view part -->	
-<h2>[
+<h4>설문 결과</h4>
+    <div id="columnchart_values"></div><br/><br/>
+<h3>[<span id="game">
 <c:choose>
 	<c:when test="${game eq '1' }">잠입명령</c:when>
 	<c:when test="${game eq '2' }">폐쇄된 외계인 실험실</c:when>
@@ -48,50 +51,84 @@ tr:hover {background-color:#f5f5f5;}
 	<c:when test="${game eq '7' }">사라진 고대유겆</c:when>
 	<c:when test="${game eq '8' }">보스의 은신처</c:when>
 	<c:otherwise>죽음의 예배당</c:otherwise>
-</c:choose>]
-</h2>
+</c:choose></span>]
+</h3>
 <div class="table-responsive">
-<table width="100%">
-	<thead>
-		<tr>
-			<th width="10%">총점</th>
-			<th width="10%">게임 환경</th>
-			<th width="10%">게임 주제</th>
-			<th width="10%">게임 구성</th>
-			<th width="10%">난이도</th>
-			<th width="30%">코멘트</th>
-			<th width="10%">인원수</th>
-			<th width="10%">고객명</th>
-		</tr>
-	</thead>
-	<tbody>
-	<c:forEach var="vo" items="${list}">
-		<tr>
-			<td>${vo.total_eval}</td>
-			<td>${vo.environment}</td>
-			<td>${vo.thema}</td>
-			<td>${vo.composition}</td>
-			<td>${vo.difficulty}</td>
-			<td style="text-align: left;">${vo.comments}</td>
-			<td>${vo.member}</td>
-			<td>${vo.name}</td>
-		</tr>
-	</c:forEach>
-		<tr style="border-top: 2px solid black;">
-			<td>${avg.eval}</td>
-			<td>${avg.env}</td>
-			<td>${avg.thema}</td>
-			<td>${avg.comp}</td>
-			<td>${avg.diff}</td>
-			<td></td>
-			<td></td>
-			<td></td>
-		</tr>
-	</tbody>
-</table><br/>
-<div align="center">
-	<a href="/master"><button class="btn" type="button">메인</button></a>
+	<table width="100%">
+		<thead>
+			<tr>
+				<th width="10%">총점</th>
+				<th width="10%">게임 환경</th>
+				<th width="10%">게임 구성</th>
+				<th width="10%">난이도</th>
+				<th width="30%">코멘트</th>
+				<th width="10%">인원수</th>
+				<th width="10%">고객명</th>
+			</tr>
+		</thead>
+		<tbody>
+		<c:forEach var="vo" items="${list}">
+			<tr>
+				<td>${vo.total_eval}</td>
+				<td>${vo.environment}</td>
+				<td>${vo.composition}</td>
+				<td>${vo.difficulty}</td>
+				<td style="text-align: left;">${vo.comments}</td>
+				<td>${vo.member}</td>
+				<td>${vo.name}</td>
+			</tr>
+		</c:forEach>
+			<tr style="border-top: 2px solid black;">
+				<td><span id="eval">${avg.eval}</span></td>
+				<td><span id="env">${avg.env}</span></td>
+				<td><span id="comp">${avg.comp}</span></td>
+				<td><span id="diff">${avg.diff}</span></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table><br/>
 </div>
+
+
+<div align="center">
+	<a href="/master"><button type="button">메인</button></a>
 </div>
 </body>
 </html>
+<script>
+
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      
+      var x = [
+               ["Element", "Density", { role: "style" } ],
+               ["종합평가",${avg.eval}, "#b87333"],
+               ["환경", ${avg.env}, "silver"],
+               ["구성", ${avg.comp}, "color: #e5e4e2"],
+               ["난이도", ${avg.diff}, "color: #e5e4e2"]
+             ];
+      
+      var data = google.visualization.arrayToDataTable(x);
+ 
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+ 
+      var options = {
+        title: $("#game").html(),
+        width: 1000,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
+</script>

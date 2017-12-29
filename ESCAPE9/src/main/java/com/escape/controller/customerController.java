@@ -78,6 +78,33 @@ SimpleDateFormat sdf;
 		}
 		return "";
 	}
+	// 서약서 sign 취소버튼 클릭시 저장
+	@RequestMapping(value="/signCancle", method = RequestMethod.POST)
+	@ResponseBody
+	public String signCancleHandle(CustomerVO vo, ModelMap data) throws Exception {
+		String date = sdf.format(System.currentTimeMillis());
+		String imgData =vo.getImgData();
+		String name = vo.getName();
+		String phone = vo.getPhone();
+		imgData = imgData.replaceAll("data:image/png;base64,", "");
+		byte[] file = Base64.decodeBase64(imgData);
+		String path = application.getRealPath("/cancleSignImage");	// 파일저장할 폴더
+		File dir = new File(path);
+		if (!dir.isDirectory()) {
+			dir.mkdirs();
+		}
+		String saveName = "c_"+name+"_"+phone+"_"+date+".png";	// 저장할 파일명 만들기(작성자 이름_전화번호_작성날자.png)
+		File target = new File(path, saveName);				
+		FileCopyUtils.copy(file, target);					// 파일 저장하기
+		
+		vo.setImgData(null);
+		vo.setFile_name(saveName);
+		int r = service.read(vo);							// 등록되어있는 고객인지 확인(등록된 고객이면 사인파일만 저장)
+		if(r==0) {
+			service.create(vo);								// 등록안된 고객이면 고객정보 등록
+		}
+		return "";
+	}
 	// 고객별 서약서 파일 확인
 	@RequestMapping(value="/customerSign", method = RequestMethod.GET)
 	public String customerSignHandle(CustomerVO vo, ModelMap data) throws Exception {

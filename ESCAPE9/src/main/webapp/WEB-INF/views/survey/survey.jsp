@@ -42,182 +42,87 @@
 			</div>
 		</p><hr/>
 		<p>
-		2. 게임 종합평가 _ 게임이 흥미로웠는지 종합적으로 평가
+		2.게임 종합평가- 본게임은 재밌으셨나요?
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=1>1 &#8193;
+				<input type="radio" name="total_eval" value=1>매우 나쁨 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=2>2 &#8193;
+				<input type="radio" name="total_eval" value=2>나쁨 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=3>3 &#8193;
+				<input type="radio" name="total_eval" value=3>보통 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=4>4 &#8193;
+				<input type="radio" name="total_eval" value=4>좋음 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=5>5 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=6>6 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=7>7 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=8>8 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=9>9 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="total_eval" value=10>10 &#8193;
+				<input type="radio" name="total_eval" value=5>아주 좋음 &#8193;
 				</label>
 			</div>
 		</p><hr/>
 		<p>
-		3. 미션 환경 _ 인테리어, 음악, 소품등 테마에 맞게 적절하게 꾸며졌는지?
+		3. 게임 환경- 인테리어와 음악 소품은 흥미로웠나요?
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=1>1 &#8193;
+				<input type="radio" name="environment" value=1>매우 나쁨 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=2>2 &#8193;
+				<input type="radio" name="environment" value=2>나쁨 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=3>3 &#8193;
+				<input type="radio" name="environment" value=3>보통 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=4>4 &#8193;
+				<input type="radio" name="environment" value=4>좋음 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="environment" value=5>5 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="environment" value=6>6 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="environment" value=7>7 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="environment" value=8>8 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="environment" value=9>9 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="environment" value=10>10 &#8193;
+				<input type="radio" name="environment" value=5>아주 좋음 &#8193;
 				</label>
 			</div>
 		</p><hr/>
 		<p>
-		4. 미션 테마 평가 _ 미션의 테마가 흥미로웠는지?
+		4. 게임 구성- 단서와 퍼즐, 힌트가 자연스럽고 개연성이 있었나요?
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=1>1 &#8193;
+				<input type="radio" name="composition" value=1>매우 나쁨 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=2>2 &#8193;
+				<input type="radio" name="composition" value=2>나쁨 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=3>3 &#8193;
+				<input type="radio" name="composition" value=3>보통 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=4>4 &#8193;
+				<input type="radio" name="composition" value=4>좋음 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="thema" value=5>5 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="thema" value=6>6 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="thema" value=7>7 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="thema" value=8>8 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="thema" value=9>9 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="thema" value=10>10 &#8193;
+				<input type="radio" name="composition" value=5>아주 좋음 &#8193;
 				</label>
 			</div>
 		</p><hr/>
 		<p>
-		5. 미션 구성 _ 단서와 퍼즐, 힌트등 게임구성이 자연스러우며 개연성이 있었는지?
+		5.  게임 난이도 - 본게임의 체감 난이도는 어떠셨나요?
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=1>1 &#8193;
+				<input type="radio" name="difficulty" value=1>매우 쉬움 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=2>2 &#8193;
+				<input type="radio" name="difficulty" value=2>쉬움 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=3>3 &#8193;
+				<input type="radio" name="difficulty" value=3>보통 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=4>4 &#8193;
+				<input type="radio" name="difficulty" value=4>어려움 &#8193;
 				</label>
 				<label class="radio-inline">
-				<input type="radio" name="composition" value=5>5 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="composition" value=6>6 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="composition" value=7>7 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="composition" value=8>8 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="composition" value=9>9 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="composition" value=10>10 &#8193;
+				<input type="radio" name="difficulty" value=5>아주 어려움 &#8193;
 				</label>
 			</div>
 		</p><hr/>
 		<p>
-		6. 난이도 _ 체감 난이도
-			<div>
-				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=1>1 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=2>2 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=3>3 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=4>4 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=5>5 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=6>6 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=7>7 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=8>8 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=9>9 &#8193;
-				</label>
-				<label class="radio-inline">
-				<input type="radio" name="difficulty" value=10>10 &#8193;
-				</label>
-			</div>
-		</p><hr/>
-		<p>
-		7. 방탈출 게임 횟수
+		6. 본인의 방탈출 참여 횟수는 어느 정도신가요?
 			<div>
 				<label class="radio-inline">
 				<input type="radio" name="repeat_num" value=0>0 회 &#8193;
@@ -237,7 +142,7 @@
 			</div>
 		</p><hr/>
 		<p>
-		8. 이스케이프 9 을 알게된 경로는?
+		7. 이스케이프9을 알게된 경로는 어떻게 되나요?
 			<div>
 				<label class="radio-inline">
 				<input type="radio" name="route" value="간판">간판 &#8193;
@@ -251,7 +156,7 @@
 			</div></p><p>
 			<div>
 				<label class="radio-inline">
-				<input type="radio" name="route" value="SNS">SNS &#8193;
+				<input type="radio" name="route" value="sns">SNS &#8193;
 				</label>
 				<label class="radio-inline">
 				<input type="radio" name="route" value="재방문">재방문 &#8193;
@@ -262,7 +167,7 @@
 			</div>
 		</p><hr/>
 		<p>
-		9. 남기실 말씀
+		8. 고쳐야 할점이나 하고 싶은 말씀을 자유롭게 써주세요!
 			<div class="form-group row">
 				<div class="col-xs-9">
 					<textarea class="form-control" rows="2" name="comments"></textarea>
@@ -270,7 +175,7 @@
 			</div>
 		</p><hr/>
 		<p>
-		10. 기타
+		9. 기타
 		<div class="form-group row">
 			<div class="col-xs-3">
 				<label for="age">연령대</label>

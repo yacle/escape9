@@ -38,9 +38,4 @@ private surveyDAO dao;
 	public List<SurveyVO> categoryRead(String game_name) throws Exception {
 		return dao.categoryRead(game_name);
 	}
-
-	@Override
-	public Map<String, Object> avg(String game_name) throws Exception {
-		return dao.avg(game_name);
-	}
 }

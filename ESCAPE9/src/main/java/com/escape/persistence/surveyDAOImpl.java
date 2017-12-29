@@ -38,9 +38,4 @@ public class surveyDAOImpl implements surveyDAO{
 	public SurveyVO readOne(String no) throws Exception {
 		return session.selectOne("survey.read_one", no);
 	}
-
-	@Override
-	public Map<String, Object> avg(String game_name) throws Exception {
-		return session.selectMap("survey.avg", game_name);
-	}
 }

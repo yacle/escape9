@@ -7,7 +7,6 @@ public class SurveyVO {
 	private String game_name;
 	private Integer total_eval;
 	private Integer	environment;
-	private Integer thema;
 	private Integer composition;
 	private Integer difficulty;
 	private Integer repeat_num;
@@ -45,12 +44,6 @@ public class SurveyVO {
 	public void setEnvironment(Integer environment) {
 		this.environment = environment;
 	}
-	public Integer getThema() {
-		return thema;
-	}
-	public void setThema(Integer thema) {
-		this.thema = thema;
-	}
 	public Integer getComposition() {
 		return composition;
 	}
@@ -60,7 +53,7 @@ public class SurveyVO {
 	@Override
 	public String toString() {
 		return "SurveyVO [no=" + no + ", game_name=" + game_name + ", total_eval=" + total_eval + ", environment="
-				+ environment + ", thema=" + thema + ", composition=" + composition + ", difficulty=" + difficulty
+				+ environment + ", composition=" + composition + ", difficulty=" + difficulty
 				+ ", repeat_num=" + repeat_num + ", route=" + route + ", route_1=" + route_1 + ", route_2=" + route_2
 				+ ", comments=" + comments + ", join_date=" + join_date + ", age=" + age + ", gender=" + gender
 				+ ", member=" + member + ", phone=" + phone + ", name=" + name + "]";

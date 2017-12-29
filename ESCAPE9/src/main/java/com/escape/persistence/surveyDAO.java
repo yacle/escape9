@@ -11,5 +11,4 @@ public interface surveyDAO {
 	public List<SurveyVO> read(String phone)throws Exception;
 	public SurveyVO readOne(String no)throws Exception;
 	public List<SurveyVO> categoryRead(String game_name)throws Exception;
-	public Map<String, Object> avg(String game_name)throws Exception;
 }

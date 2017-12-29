@@ -109,13 +109,4 @@ public class masterController {
 		mav.addObject("avg", avg);
 		return mav;
 	}
-	
-	@RequestMapping(value="/survey_avg", method = {RequestMethod.GET, RequestMethod.POST})
-	@ResponseBody
-	public String surveyAVGHandle(@RequestBody Map map) throws Exception{
-		String game = (String) map.get("game");
-		Map<String, Object> data = survey.avg(game);
-		String json = mapper.writeValueAsString(data);
-		return json;
-	}
 }
