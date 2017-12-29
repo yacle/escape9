@@ -62,6 +62,6 @@ body{
 </html>
 <script>
 $("#sign").click(function(){
-	window.open("/sign", "signature", "width=780, height=1000");
+	window.open("/sign", "signature", "width=1024, height=600");
 })
 </script>

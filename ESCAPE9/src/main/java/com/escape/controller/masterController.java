@@ -6,7 +6,10 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -90,6 +93,7 @@ public class masterController {
 		mav.addObject("list", list);
 		return mav;
 	}
+	
 	@RequestMapping(value="/surveyStats", method = RequestMethod.GET)
 	public Map iframeHandle(Map map) throws Exception {
 		List<SurveyVO> list = survey.list();
