@@ -5,17 +5,24 @@
 <title>ESCAPE9</title>
 </head>
 <style>
+	body{
+		background-image: url("/images/backwall.jpg");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-attachment: fixed;
+	}
     .btn{
       text-decoration: none;
-      font-size:2rem;
+      font-size:3rem;
+      font-weight: bold;
       color:white;
-      padding:10px 20px 10px 20px;
+      padding:20px 40px 20px 40px;
       margin:20px;
       display:inline-block;
       border-radius: 10px;
       transition:all 0.1s;
       text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
-      font-family: "Arial Black", Gadget, sans-serif;
+      font-family: "Times New Roman", Times, serif;
     }
     .btn:active{
       transform: translateY(3px);
@@ -43,7 +50,7 @@
     }
   </style>
 <body>
-	<div class="row" style="margin-top: 200px">
+	<div class="row" style="margin-top: 300px">
 		<div class="col-xs-4" align="center">
 			<a class="btn left" href="/master/customer">고객정보</a>
 		</div>

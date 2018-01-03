@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.escape.domain.AvgUtil;
+import com.escape.domain.Criteria;
 import com.escape.domain.CustomerVO;
+import com.escape.domain.PageMaker;
 import com.escape.domain.SurveyVO;
 import com.escape.service.customerService;
 import com.escape.service.surveyService;
@@ -86,15 +88,19 @@ public class masterController {
 	}
 	// 설문통계 메인페이지
 	@RequestMapping(value="/stats", method = RequestMethod.GET)
-	public ModelAndView surveyMainHandle() throws Exception{
-		List<SurveyVO> list = survey.list();
+	public ModelAndView surveyMainHandle(Criteria cri) throws Exception{
 		ModelAndView mav = new ModelAndView("temp");
+		mav.addObject("list", survey.listCriteria(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(survey.listCountCriteria(cri));
 		mav.addObject("section", "/master/surveyMain");
-		mav.addObject("list", list);
+		mav.addObject("pageMaker", pageMaker);
+//		mav.addObject("list", list);
 		return mav;
 	}
 	
-	@RequestMapping(value="/surveyStats", method = RequestMethod.GET)
+	@RequestMapping(value="/paging", method = RequestMethod.GET)
 	public Map iframeHandle(Map map) throws Exception {
 		List<SurveyVO> list = survey.list();
 		map.put("list", list);

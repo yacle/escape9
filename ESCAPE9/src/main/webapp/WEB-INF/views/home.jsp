@@ -49,7 +49,7 @@ body{
     }
  </style>
 <body>
-	<div class="row" style="margin-top: 400px">
+	<div class="row" style="margin-top: 300px">
 		<div class="col-xs-6" align="center">
 			<a class="btn left" href="" id="sign">사전 안내문 및 서약서</a>
 		</div>

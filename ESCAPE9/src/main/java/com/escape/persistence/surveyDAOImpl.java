@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.escape.domain.Criteria;
 import com.escape.domain.SurveyVO;
 @Repository
 public class surveyDAOImpl implements surveyDAO{
@@ -37,5 +38,15 @@ public class surveyDAOImpl implements surveyDAO{
 	@Override
 	public SurveyVO readOne(String no) throws Exception {
 		return session.selectOne("survey.read_one", no);
+	}
+
+	@Override
+	public List<SurveyVO> listCriteria(Criteria cri) throws Exception {
+		return session.selectList("survey.pageList", cri);
+	}
+
+	@Override
+	public int countPaging(Criteria cri) throws Exception {
+		return session.selectOne("survey.countPaging", cri);
 	}
 }

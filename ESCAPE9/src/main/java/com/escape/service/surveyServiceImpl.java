@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.escape.domain.Criteria;
 import com.escape.domain.SurveyVO;
 import com.escape.persistence.surveyDAO;
 @Service
@@ -37,5 +38,15 @@ private surveyDAO dao;
 	@Override
 	public List<SurveyVO> categoryRead(String game_name) throws Exception {
 		return dao.categoryRead(game_name);
+	}
+
+	@Override
+	public List<SurveyVO> listCriteria(Criteria cri) throws Exception {
+		return dao.listCriteria(cri);
+	}
+
+	@Override
+	public int listCountCriteria(Criteria cri) throws Exception {
+		return dao.countPaging(cri);
 	}
 }

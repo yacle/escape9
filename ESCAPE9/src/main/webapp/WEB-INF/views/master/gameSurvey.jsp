@@ -40,7 +40,7 @@ tr:hover {background-color:#f5f5f5;}
 	</ul><br/>
 <!-- view part -->	
 <h4>설문 결과</h4>
-    <div id="columnchart_values"></div><br/><br/>
+<div id="columnchart_values" align="center"></div><br/><br/>
 <h3>[<span id="game">
 <c:choose>
 	<c:when test="${game eq '1' }">잠입명령</c:when>
@@ -105,10 +105,10 @@ tr:hover {background-color:#f5f5f5;}
       
       var x = [
                ["Element", "Density", { role: "style" } ],
-               ["종합평가",${avg.eval}, "#b87333"],
-               ["환경", ${avg.env}, "silver"],
-               ["구성", ${avg.comp}, "color: #e5e4e2"],
-               ["난이도", ${avg.diff}, "color: #e5e4e2"]
+               ["종합평가",${avg.eval}, "#0000FF"],
+               ["환경", ${avg.env}, "#FFD700"],
+               ["구성", ${avg.comp}, "#32CD32"],
+               ["난이도", ${avg.diff}, "#FF00FF"]
              ];
       
       var data = google.visualization.arrayToDataTable(x);
@@ -123,9 +123,9 @@ tr:hover {background-color:#f5f5f5;}
  
       var options = {
         title: $("#game").html(),
-        width: 1000,
+        width: 800,
         height: 400,
-        bar: {groupWidth: "95%"},
+        bar: {groupWidth: "70%"},
         legend: { position: "none" },
       };
       var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
