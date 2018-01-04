@@ -1,6 +1,7 @@
 package com.escape.domain;
 
 public class CustomerVO {
+	private int no;
 	private String name;
 	private String phone;
 	private String email;
@@ -50,5 +51,11 @@ public class CustomerVO {
 	}
 	public void setAdd_date(String add_date) {
 		this.add_date = add_date;
+	}
+	public int getNo() {
+		return no;
+	}
+	public void setNo(int no) {
+		this.no = no;
 	}
 }

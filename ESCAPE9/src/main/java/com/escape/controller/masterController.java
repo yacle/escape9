@@ -45,11 +45,14 @@ public class masterController {
 	}
 	// 고객명단
 	@RequestMapping(value="/customer", method = RequestMethod.GET)
-	public ModelAndView customerListHandle() throws Exception {
-		List<CustomerVO> list = customer.list();
+	public ModelAndView customerListHandle(Criteria cri) throws Exception {
 		ModelAndView mav = new ModelAndView("temp");
 		mav.addObject("section", "master/customerList");
-		mav.addObject("list", list);
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(customer.listCountCriteria(cri));
+		mav.addObject("list", customer.listCriteria(cri));
+		mav.addObject("pageMaker", pageMaker);
 		return mav;
 	}
 	
@@ -90,21 +93,13 @@ public class masterController {
 	@RequestMapping(value="/stats", method = RequestMethod.GET)
 	public ModelAndView surveyMainHandle(Criteria cri) throws Exception{
 		ModelAndView mav = new ModelAndView("temp");
-		mav.addObject("list", survey.listCriteria(cri));
+		mav.addObject("section", "/master/surveyMain");
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(survey.listCountCriteria(cri));
-		mav.addObject("section", "/master/surveyMain");
+		mav.addObject("list", survey.listCriteria(cri));
 		mav.addObject("pageMaker", pageMaker);
-//		mav.addObject("list", list);
 		return mav;
-	}
-	
-	@RequestMapping(value="/paging", method = RequestMethod.GET)
-	public Map iframeHandle(Map map) throws Exception {
-		List<SurveyVO> list = survey.list();
-		map.put("list", list);
-		return map;
 	}
 	
 	// 게임별 설문통계

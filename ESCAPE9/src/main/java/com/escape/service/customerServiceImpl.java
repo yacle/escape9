@@ -7,6 +7,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.escape.domain.Criteria;
 import com.escape.domain.CustomerVO;
 import com.escape.persistence.customerDAO;
 @Service
@@ -42,6 +43,16 @@ private customerDAO dao;
 	@Override
 	public int read(CustomerVO vo) throws Exception {
 		return dao.read(vo);
+	}
+
+	@Override
+	public List<CustomerVO> listCriteria(Criteria cri) throws Exception {
+		return dao.listCriteria(cri);
+	}
+
+	@Override
+	public int listCountCriteria(Criteria cri) throws Exception {
+		return dao.countPaging(cri);
 	}
 
 }

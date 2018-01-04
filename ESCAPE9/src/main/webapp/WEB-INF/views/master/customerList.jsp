@@ -42,6 +42,23 @@ tr:hover {background-color:#f5f5f5;}
 	</c:forEach>
 	</tbody>
 </table><br/>
+<!-- pagination -->
+<div class="text-center">
+	<ul class="pagination">
+		<c:if test="${pageMaker.prev}">
+			<li><a href="/master/customer?page=${pageMaker.startPage - 1}">&laquo;</a></li>
+		</c:if>
+		<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
+			<li <c:out value="${pageMaker.cri.page == idx ? 'class=active' : ''}"/>> 
+				<a href="/master/customer?page=${idx}">${idx}</a>
+			</li>
+		</c:forEach>
+		<c:if test="${pageMaker.next && pageMaker.endPage > 0 }">
+			<li><a href="/master/customer?page=${pageMaker.endPage + 1}">&laquo;</a></li>
+		</c:if>
+	</ul>
+</div> 
+
 <div align="center">
 	<button type="button" onClick="history.back()">메인</button>
 </div>

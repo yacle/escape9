@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.escape.domain.Criteria;
 import com.escape.domain.CustomerVO;
 @Repository
 public class customerDAOImpl implements customerDAO {
@@ -49,5 +50,16 @@ public class customerDAOImpl implements customerDAO {
 			session.insert("customer.add", vo);
 		}
 		return r;
+	}
+
+	@Override
+	public List<CustomerVO> listCriteria(Criteria cri) throws Exception {
+		return session.selectList("customer.pageList", cri);
+		
+	}
+
+	@Override
+	public int countPaging(Criteria cri) throws Exception {
+		return session.selectOne("customer.countPaging", cri);
 	}
 }
