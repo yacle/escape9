@@ -13,23 +13,23 @@
 <style>
 .signature-pad {
   position: absolute;
-  left: 20;
+  left: 0;
   top: 0;
-  width:800;
-  height:820px;
+  width:1000;
+  height:1105;
 }
 .signature-pad2 {
   position: absolute;
-  left:581;
-  top:810;
-  width:240;
-  height:90px;
+  left:700;
+  top:1135;
+  width:300;
+  height:100;
 }
 table{
   position: absolute;
-  width:800;
-  height:890;
-  left: 20;
+  width:1000;
+  height:1208;
+  left: 0;
   top: 0;
 }
 strong{
@@ -43,14 +43,17 @@ th{
 }
 td{
 	border: 1px solid black;
-	padding: 20px;
-	font-size: 15px;
+	padding-left: 20px;
+	font-size: 21px;
 }
 .info{
   position: absolute;
-  left: 20;
-  top: 910;
-	text-align: center;
+  left: 0;
+  top: 1250;
+  text-align: center;
+}
+button{
+	font-size:20px;
 }
 </style>
 <body>
@@ -73,7 +76,7 @@ td{
 						&#8193;소품이 작동을 하지 않거나 게임 진행에 문제 또는 불편하신 점이 있을 시에도 알려주시기 바랍니다.<br/>
 						2.<b>방 내부의 기물들의 파손에 주의해주십시오.</b><br/>
 						&#8193;게임진행에는 지나친 힘을 사용하는 부분이 없습니다. 고객의 고의 또는 과실로 인해 기물을 파손하실 경우 이에 대한
-						손해배상을 하셔야 합니다. 특수효과 및 기술적인 장치가 많사오니 더욱 주의하시길 바랍니다.
+						손해배상을 하셔야 합니다.<br/> 특수효과 및 기술적인 장치가 많사오니 더욱 주의하시길 바랍니다.
 						</p><br/>
 						<p>
 						<strong>[정보보안에 관한 서약]</strong><br/>
@@ -84,8 +87,8 @@ td{
 						<p>
 						<strong>[안전 및 소지품 보관에 관한 서약]</strong><br/>
 						1. 각 게임은 1시간 정도 소요됩니다. <b>폐쇄공포증 환자 및 임산부 등 밀폐된 장소에 머무는 것이 힘드신 손님께서는
-						사전에 알려주시기 바랍니다.</b> 각 게임은 항시 모니터 되고 있습니다.<br/>
-						2. 저희 ESCAPE9은 방문하시는 분들의 소지품 보관을 위해 사물함을 제공해 드립니다. 귀중품이 있을 경우
+						사전에 알려주시기 바랍니다.</b><br/> 각 게임은 항시 모니터 되고 있습니다.<br/>
+						2. 저희 ESCAPE9은 방문하시는 분들의 소지품 보관을 위해 사물함을 제공해 드립니다.<br/> 귀중품이 있을 경우
 						카운터에 별도로 보관하시기 바라며, 별도 보관 외의 소지품의 분실에 대해서는 책임지지 않습니다.
 						</p>
 					</td>
@@ -100,7 +103,7 @@ td{
 							- 예약정보를 확인 및 관리하고, 필요시 예약 이행 여부 확인을 위해 예약자에게 연락을 취할 목적<br/>
 							- 이벤트 및 프로모션 등 내부행사 소식을 알리기 위한 목적<br/>
 							&#8193;&#8193;{개인정보의 항목}<br/>
-							- 필수입력 사항 : 이용자의 식별을 위한 정보 (이름, 휴대폰 번호, 이메이주소)<br/>
+							- 필수입력 사항 : 이용자의 식별을 위한 정보 (이름, 휴대폰 번호, 이메일주소)<br/>
 							&#8193;&#8193;{개인정보의 보유 및 이용기간}<br/>
 							- 개인정보의 수집은 관련 법령의 규정에 의거 5년간 보유합니다.<br/>
 						</div>
@@ -111,13 +114,13 @@ td{
 					</td>
 				</tr>
 				<tr height="62px">
-					<td style="text-align:center; padding:0">상기내용을 확인하였습니다.</td>
-					<td style="padding:0">서명</td>
+					<td style="text-align:center;">상기내용을 확인하였습니다.</td>
+					<td>서명</td>
 				</tr>
 			</tbody>
 		</table>
-		<canvas id="signature-pad" class="signature-pad" width=820 height=800></canvas>
-		<canvas id="signature-pad2" class="signature-pad2" width=350 height=50></canvas>
+		<canvas id="signature-pad" class="signature-pad" width=1000 height=1105></canvas>
+		<canvas id="signature-pad2" class="signature-pad2"></canvas>
 		<div class="info">
 			<form name="imgForm" id="imgForm" action="/signResult" method="post">
 				<input type="hidden" id="imgData" name="imgData">
@@ -167,19 +170,23 @@ $("#clear").click(function(){
 })
 
 $("#cancle").click(function(){
-	var data = signaturePad2.toDataURL('image/png');
-	$.ajax({
-		type: "post",
-		async: false,
-		url: "/signCancle",
-		data:{
-			"imgData": data,
-			"name": $("#name").val(),
-			"phone":$("#phone").val(),
-			"email": $("#email").val()
-		}
-	}).done(function(){
+	if($("#name").val()!=''){
+		var data = signaturePad2.toDataURL('image/png');
+		$.ajax({
+			type: "post",
+			async: false,
+			url: "/signCancle",
+			data:{
+				"imgData": data,
+				"name": $("#name").val(),
+				"phone":$("#phone").val(),
+				"email": $("#email").val()
+			}
+		}).done(function(){
+			window.close();
+		})
+	}else{
 		window.close();
-	})
+	}
 })
 </script>

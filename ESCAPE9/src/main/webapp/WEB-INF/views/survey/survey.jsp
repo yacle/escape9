@@ -6,7 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>설문조사</title>
 <style>
-
+input{
+	font-size:20px;
+}
 </style>
 </head>
 <body>
@@ -14,7 +16,7 @@
 		<h2>게임 설문조사</h2>
 	</div><hr/>
 	<form method="post" action="/survey/post" id="survey">
-		<p>
+	<h4><p>
 		1. 어떤 게임을 하셨나요?
 			<div class="radio">
 				<label><input type="radio" name="game_name" value="1">The grand museum_잠입명령</label>
@@ -211,6 +213,7 @@
 		작성자 :  <input type="text" name="name" id="name">
 		핸드폰 : <input type="number" name="phone" id="phone"><br/><br/>
 		<button class="btn btn-info" type="button" id="btn">제출</button>
+		</h4>
 	</form>
 </body><br/><br/><br/>
 <h1></h1>
@@ -220,15 +223,14 @@
 		if (!$("input[name='game_name']:checked").val()) { alert('1.게임을 선택하세요');return false;}
 		if (!$("input[name='total_eval']:checked").val()) { alert('2.종합평가를 선택하세요');return false;}
 		if (!$("input[name='environment']:checked").val()) { alert('3.환경평가를 선택하세요');return false;}
-		if (!$("input[name='thema']:checked").val()) { alert('4.테마평가를 선택하세요');return false;}
-		if (!$("input[name='composition']:checked").val()) { alert('5.구성평가를 선택하세요');return false;}
-		if (!$("input[name='difficulty']:checked").val()) { alert('6.난이도를 선택하세요');return false;}
-		if (!$("input[name='repeat_num']:checked").val()) { alert('7.게임횟수를 선택하세요');return false;}
+		if (!$("input[name='composition']:checked").val()) { alert('4.구성평가를 선택하세요');return false;}
+		if (!$("input[name='difficulty']:checked").val()) { alert('5.난이도를 선택하세요');return false;}
+		if (!$("input[name='repeat_num']:checked").val()) { alert('6.게임횟수를 선택하세요');return false;}
 		if (!$("input[name='route']:checked").val()) { alert('알게된 경로를 선택하세요');return false;}
-		if ($("textarea").val().length==0) { alert('9.소감을 남겨주세요');$("textarea").focus();return false;}
-		if ($("#age").val()=='') { alert('10.연령대를 선택하세요');return false;}
-		if ($("#gender").val()=='') { alert('10.성별을 선택하세요');return false;}
-		if ($("#member").val()=='') { alert('10.인원수를 선택하세요');return false;}
+		if ($("textarea").val().length==0) { alert('8.소감을 남겨주세요');$("textarea").focus();return false;}
+		if ($("#age").val()=='') { alert('9.연령대를 선택하세요');return false;}
+		if ($("#gender").val()=='') { alert('9.성별을 선택하세요');return false;}
+		if ($("#member").val()=='') { alert('9.인원수를 선택하세요');return false;}
 		if ($("#name").val()=='') { alert('이름을 입력해주세요');$("#name").focus();return false;}
 		if ($("#phone").val()=='') { alert('전화번호를 입력해주세요');$("#phone").focus();return false;}
 		$("#survey").submit();

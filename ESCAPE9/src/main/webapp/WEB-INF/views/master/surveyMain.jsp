@@ -71,7 +71,7 @@ tr:hover {background-color:#f5f5f5;}
 					<c:when test="${vo.game_name eq '3' }">아내의 비밀</c:when>
 					<c:when test="${vo.game_name eq '4' }">남편의 비밀</c:when>
 					<c:when test="${vo.game_name eq '5' }">실종된 탐사대</c:when>
-					<c:when test="${vo.game_name eq '7' }">사라진 고대유겆</c:when>
+					<c:when test="${vo.game_name eq '7' }">사라진 고대유적</c:when>
 					<c:when test="${vo.game_name eq '8' }">보스의 은신처</c:when>
 					<c:otherwise>죽음의 예배당</c:otherwise>
 				</c:choose>

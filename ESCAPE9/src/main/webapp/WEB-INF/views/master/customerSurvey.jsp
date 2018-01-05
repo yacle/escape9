@@ -27,7 +27,6 @@ tr:hover {background-color:#f5f5f5;}
 			<th width="15%">게임명</th>
 			<th width="4%">총점</th>
 			<th width="4%">환경</th>
-			<th width="4%">주제</th>
 			<th width="4%">구성</th>
 			<th width="5%">난이도</th>
 			<th width="7%">게임횟수</th>
@@ -49,12 +48,13 @@ tr:hover {background-color:#f5f5f5;}
 				<c:when test="${vo.game_name eq '3' }">아내의 비밀</c:when>
 				<c:when test="${vo.game_name eq '4' }">남편의 비밀</c:when>
 				<c:when test="${vo.game_name eq '5' }">실종된 탐사대</c:when>
+				<c:when test="${vo.game_name eq '7' }">사라진 고대유겆</c:when>
+				<c:when test="${vo.game_name eq '8' }">보스의 은신처</c:when>
 				<c:otherwise>죽음의 예배당</c:otherwise>
 			</c:choose>
 			</td>
  			<td>${vo.total_eval}</td>
 			<td>${vo.environment}</td>
-			<td>${vo.thema}</td>
 			<td>${vo.composition}</td>
  			<td>${vo.difficulty}</td>
 			<td>${vo.repeat_num}</td>
