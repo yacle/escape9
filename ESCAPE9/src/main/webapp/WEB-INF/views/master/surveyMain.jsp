@@ -107,5 +107,8 @@ tr:hover {background-color:#f5f5f5;}
 			</c:if>
 		</ul>
 	</div>
+	<div align="center">
+		<a href="/master"><button type="button">메인</button></a>
+	</div><br/><br/><br/><br/>
 </body>
 </html>

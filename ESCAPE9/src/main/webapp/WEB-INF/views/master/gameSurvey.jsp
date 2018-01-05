@@ -8,6 +8,12 @@
 <title>설문리스트</title>
 </head>
 <style>
+table{
+	width:100%;
+}
+.table-bordered{
+	color:blue;
+}
 th, td{
 	text-align: center;
 	font-size: 15px;
@@ -54,7 +60,24 @@ tr:hover {background-color:#f5f5f5;}
 </c:choose></span>]
 </h3>
 <div class="table-responsive">
-	<table width="100%">
+	<table class="table-bordered">
+		<thead>
+			<tr>
+				<th width="15%" rowspan="2" style="text-align:middle;">평균</th>
+				<th width="20%">총점</th>
+				<th width="20%">게임 환경</th>
+				<th width="20%">게임 구성</th>
+				<th width="20%">난이도</th>
+			</tr>
+			<tr style="border-bottom: 2px solid black;">
+				<td><span id="eval">${avg.eval}</span></td>
+				<td><span id="env">${avg.env}</span></td>
+				<td><span id="comp">${avg.comp}</span></td>
+				<td><span id="diff">${avg.diff}</span></td>
+			</tr>
+		</thead>
+	</table><br/>
+	<table>
 		<thead>
 			<tr>
 				<th width="10%">총점</th>
@@ -78,15 +101,6 @@ tr:hover {background-color:#f5f5f5;}
 				<td>${vo.name}</td>
 			</tr>
 		</c:forEach>
-			<tr style="border-top: 2px solid black;">
-				<td><span id="eval">${avg.eval}</span></td>
-				<td><span id="env">${avg.env}</span></td>
-				<td><span id="comp">${avg.comp}</span></td>
-				<td><span id="diff">${avg.diff}</span></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
 		</tbody>
 	</table><br/>
 </div>
@@ -94,7 +108,7 @@ tr:hover {background-color:#f5f5f5;}
 
 <div align="center">
 	<a href="/master"><button type="button">메인</button></a>
-</div>
+</div><br/><br/><br/><br/>
 </body>
 </html>
 <script>
