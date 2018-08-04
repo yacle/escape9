@@ -20,7 +20,7 @@
 		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="jdbcUrl" value="jdbc:oracle:thin:@127.0.0.1:1521:xe" />
 		<property name="user" value="escape" />
-		<property name="password" value="escape" />
+		<property name="password" value="escape9" />
 	</bean>	
 	
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="factory">
